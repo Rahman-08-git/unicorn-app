@@ -1,0 +1,156 @@
+{
+  "audience": "PRE_PRIMARY",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "pre_primary_01",
+      "audience": "PRE_PRIMARY",
+      "question": "Which colour is a ripe banana?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Blue"
+        },
+        {
+          "id": "B",
+          "text": "Yellow"
+        },
+        {
+          "id": "C",
+          "text": "Green"
+        },
+        {
+          "id": "D",
+          "text": "Purple"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "A ripe banana is yellow!",
+      "difficulty": "medium",
+      "topic": "colours",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_02",
+      "audience": "PRE_PRIMARY",
+      "question": "How many legs does a cat have?",
+      "description": "Count them: 1, 2, 3 ...",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "A cat walks on 4 legs.",
+      "difficulty": "medium",
+      "topic": "counting",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_03",
+      "audience": "PRE_PRIMARY",
+      "question": "Which one is round like a ball?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "A box"
+        },
+        {
+          "id": "B",
+          "text": "A book"
+        },
+        {
+          "id": "C",
+          "text": "An orange"
+        },
+        {
+          "id": "D",
+          "text": "A pencil"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "An orange is round, just like a ball.",
+      "difficulty": "medium",
+      "topic": "shapes",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_04",
+      "audience": "PRE_PRIMARY",
+      "question": "Which animal says \"moo\"?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Cow"
+        },
+        {
+          "id": "B",
+          "text": "Dog"
+        },
+        {
+          "id": "C",
+          "text": "Duck"
+        },
+        {
+          "id": "D",
+          "text": "Cat"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Cows say moo!",
+      "difficulty": "medium",
+      "topic": "animals",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_05",
+      "audience": "PRE_PRIMARY",
+      "question": "What do we use to brush our teeth?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "A spoon"
+        },
+        {
+          "id": "B",
+          "text": "A toothbrush"
+        },
+        {
+          "id": "C",
+          "text": "A comb"
+        },
+        {
+          "id": "D",
+          "text": "A crayon"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "We brush our teeth with a toothbrush every morning and night.",
+      "difficulty": "medium",
+      "topic": "healthy_habits",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

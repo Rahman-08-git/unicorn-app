@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_10",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_10_01",
+      "audience": "CLASS_10",
+      "question": "According to Ohm's law, if voltage across a resistor doubles while resistance remains constant, the current:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Remains unchanged"
+        },
+        {
+          "id": "B",
+          "text": "Is halved"
+        },
+        {
+          "id": "C",
+          "text": "Doubles"
+        },
+        {
+          "id": "D",
+          "text": "Quadruples"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "V = I × R. When V doubles at constant R, current I must also double.",
+      "difficulty": "medium",
+      "topic": "electricity_ohms_law",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_02",
+      "audience": "CLASS_10",
+      "question": "A convex lens of focal length 20 cm produces a real image of the same size as the object when the object is placed at:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "10 cm"
+        },
+        {
+          "id": "B",
+          "text": "20 cm"
+        },
+        {
+          "id": "C",
+          "text": "40 cm (at 2F)"
+        },
+        {
+          "id": "D",
+          "text": "Infinity"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "At 2F (twice the focal length = 40 cm), a convex lens forms an inverted, real image of identical height at 2F on the opposite side.",
+      "difficulty": "medium",
+      "topic": "optics_lenses",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_03",
+      "audience": "CLASS_10",
+      "question": "What is the chemical formula of rust on iron?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "FeSO4"
+        },
+        {
+          "id": "B",
+          "text": "Fe2O3 · xH2O"
+        },
+        {
+          "id": "C",
+          "text": "FeCl3"
+        },
+        {
+          "id": "D",
+          "text": "FeCO3"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Rust is hydrated iron(III) oxide: Fe2O3 · xH2O.",
+      "difficulty": "medium",
+      "topic": "chemical_reactions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_04",
+      "audience": "CLASS_10",
+      "question": "What is the probability of rolling a prime number on a standard fair six-sided die?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/6"
+        },
+        {
+          "id": "B",
+          "text": "1/3"
+        },
+        {
+          "id": "C",
+          "text": "1/2"
+        },
+        {
+          "id": "D",
+          "text": "2/3"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Prime numbers on a die are 2, 3, and 5 (3 outcomes out of 6) = 3/6 = 1/2.",
+      "difficulty": "medium",
+      "topic": "probability",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_05",
+      "audience": "CLASS_10",
+      "question": "Which hereditary material carries genetic instructions in living organisms?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "ATP"
+        },
+        {
+          "id": "B",
+          "text": "DNA"
+        },
+        {
+          "id": "C",
+          "text": "Hemoglobin"
+        },
+        {
+          "id": "D",
+          "text": "Chlorophyll"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Deoxyribonucleic acid (DNA) stores genetic codes across biological generations.",
+      "difficulty": "medium",
+      "topic": "genetics_biology",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "audience": "GUARDIAN",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "guardian_01",
+      "audience": "GUARDIAN",
+      "question": "How does multidisciplinary learning (connecting arts, science, and math) benefit a child?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It creates holistic thinkers who see real-world connections"
+        },
+        {
+          "id": "B",
+          "text": "It confuses students by mixing unrelated subjects"
+        },
+        {
+          "id": "C",
+          "text": "It should only be introduced at university level"
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need to learn mathematics basics"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Real-world challenges require integrating concepts from science, design, and quantitative reasoning.",
+      "difficulty": "medium",
+      "topic": "holistic_learning",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_02",
+      "audience": "GUARDIAN",
+      "question": "What is the most effective way to help a child overcome fear of mathematics or science?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Increase homework drill volume until scores improve"
+        },
+        {
+          "id": "B",
+          "text": "Connect concepts to tangible games, puzzles, and daily life"
+        },
+        {
+          "id": "C",
+          "text": "Compare them with peers who score higher"
+        },
+        {
+          "id": "D",
+          "text": "Avoid discussing math or science altogether"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Puzzles and hands-on activities demystify abstract formulas into joyful, intuitive discoveries.",
+      "difficulty": "medium",
+      "topic": "confidence_building",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_03",
+      "audience": "GUARDIAN",
+      "question": "Why is inquiry-based learning important in early education?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It encourages learners to ask \"why\" and seek evidence"
+        },
+        {
+          "id": "B",
+          "text": "It ensures all children follow one identical memorised script"
+        },
+        {
+          "id": "C",
+          "text": "It eliminates the need for any guidance or structure"
+        },
+        {
+          "id": "D",
+          "text": "It focuses strictly on exam ranking metrics"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Inquiry-based learning builds independent, critical thinkers capable of evaluating information.",
+      "difficulty": "medium",
+      "topic": "inquiry_learning",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_04",
+      "audience": "GUARDIAN",
+      "question": "What role does creative play have in cognitive development?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It is a distraction from real educational progress"
+        },
+        {
+          "id": "B",
+          "text": "It develops spatial awareness, collaboration, and experimentation"
+        },
+        {
+          "id": "C",
+          "text": "It is only valuable for physical exercise"
+        },
+        {
+          "id": "D",
+          "text": "It should only be allowed as a reward for high test marks"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Playful experimentation is the foundation upon which children test hypotheses and build resilience.",
+      "difficulty": "medium",
+      "topic": "play_and_learning",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_05",
+      "audience": "GUARDIAN",
+      "question": "How does encouraging a child to explain a solution in their own words help their mastery?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It deepens comprehension and reveals gaps in reasoning"
+        },
+        {
+          "id": "B",
+          "text": "It takes too much time compared to reading silent notes"
+        },
+        {
+          "id": "C",
+          "text": "It is only helpful if they use exact book definitions"
+        },
+        {
+          "id": "D",
+          "text": "It has no effect on memory retention"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Articulating reasoning (the Feynman technique) consolidates conceptual understanding.",
+      "difficulty": "medium",
+      "topic": "metacognition",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

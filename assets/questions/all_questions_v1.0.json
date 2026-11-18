@@ -1,0 +1,2555 @@
+{
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "parent_01",
+      "audience": "PARENT",
+      "question": "Which learning approach best develops long-term problem-solving ability in children?",
+      "description": "Education 4.0 highlights active inquiry.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorising textbook answers word-for-word"
+        },
+        {
+          "id": "B",
+          "text": "Exploring concepts through hands-on experimentation"
+        },
+        {
+          "id": "C",
+          "text": "Completing repetitive calculation worksheets only"
+        },
+        {
+          "id": "D",
+          "text": "Limiting questions strictly to the syllabus"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Hands-on experimentation helps children build conceptual understanding and adaptability.",
+      "difficulty": "medium",
+      "topic": "educational_philosophy",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_02",
+      "audience": "PARENT",
+      "question": "When a child makes an unexpected mistake while solving a problem, what is the most constructive response?",
+      "description": "Cultivating a growth mindset.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Correct them immediately and give the final answer"
+        },
+        {
+          "id": "B",
+          "text": "Ask open-ended questions to guide them to discover why"
+        },
+        {
+          "id": "C",
+          "text": "Express disappointment so they pay more attention"
+        },
+        {
+          "id": "D",
+          "text": "Switch to an easier task immediately"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Open-ended questions help learners reflect, analyse errors, and build metacognitive skills.",
+      "difficulty": "medium",
+      "topic": "growth_mindset",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_03",
+      "audience": "PARENT",
+      "question": "In \"Education 4.0\", technology is primarily seen as:",
+      "description": "Understanding the role of modern digital tools.",
+      "options": [
+        {
+          "id": "A",
+          "text": "A tool for children to create, model, and understand real systems"
+        },
+        {
+          "id": "B",
+          "text": "A passive video screen to keep children occupied"
+        },
+        {
+          "id": "C",
+          "text": "A replacement for teacher-guided discussions"
+        },
+        {
+          "id": "D",
+          "text": "Only useful for high-school students"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Technology empowers young learners to model real-world phenomena and create original solutions.",
+      "difficulty": "medium",
+      "topic": "technology_in_education",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_04",
+      "audience": "PARENT",
+      "question": "How can parents best support curiosity in everyday home routines?",
+      "description": "Daily observational habits.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Answer every question with \"because I said so\""
+        },
+        {
+          "id": "B",
+          "text": "Investigate everyday phenomena together (e.g. why bread rises)"
+        },
+        {
+          "id": "C",
+          "text": "Discourage taking toys or items apart to see how they work"
+        },
+        {
+          "id": "D",
+          "text": "Rely solely on school homework for all learning"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Exploring simple daily wonders together shows children that learning happens everywhere.",
+      "difficulty": "medium",
+      "topic": "parental_engagement",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_05",
+      "audience": "PARENT",
+      "question": "What is computational thinking at the foundational level?",
+      "description": "Thinking skills for the modern age.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorising coding syntax and typing speed"
+        },
+        {
+          "id": "B",
+          "text": "Breaking complex problems into smaller, manageable steps"
+        },
+        {
+          "id": "C",
+          "text": "Spending multiple hours in front of computer screens"
+        },
+        {
+          "id": "D",
+          "text": "Using calculators instead of mental reasoning"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Decomposition, pattern recognition, and step-by-step logic form the core of computational thinking.",
+      "difficulty": "medium",
+      "topic": "computational_thinking",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_01",
+      "audience": "GUARDIAN",
+      "question": "How does multidisciplinary learning (connecting arts, science, and math) benefit a child?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It creates holistic thinkers who see real-world connections"
+        },
+        {
+          "id": "B",
+          "text": "It confuses students by mixing unrelated subjects"
+        },
+        {
+          "id": "C",
+          "text": "It should only be introduced at university level"
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need to learn mathematics basics"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Real-world challenges require integrating concepts from science, design, and quantitative reasoning.",
+      "difficulty": "medium",
+      "topic": "holistic_learning",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_02",
+      "audience": "GUARDIAN",
+      "question": "What is the most effective way to help a child overcome fear of mathematics or science?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Increase homework drill volume until scores improve"
+        },
+        {
+          "id": "B",
+          "text": "Connect concepts to tangible games, puzzles, and daily life"
+        },
+        {
+          "id": "C",
+          "text": "Compare them with peers who score higher"
+        },
+        {
+          "id": "D",
+          "text": "Avoid discussing math or science altogether"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Puzzles and hands-on activities demystify abstract formulas into joyful, intuitive discoveries.",
+      "difficulty": "medium",
+      "topic": "confidence_building",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_03",
+      "audience": "GUARDIAN",
+      "question": "Why is inquiry-based learning important in early education?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It encourages learners to ask \"why\" and seek evidence"
+        },
+        {
+          "id": "B",
+          "text": "It ensures all children follow one identical memorised script"
+        },
+        {
+          "id": "C",
+          "text": "It eliminates the need for any guidance or structure"
+        },
+        {
+          "id": "D",
+          "text": "It focuses strictly on exam ranking metrics"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Inquiry-based learning builds independent, critical thinkers capable of evaluating information.",
+      "difficulty": "medium",
+      "topic": "inquiry_learning",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_04",
+      "audience": "GUARDIAN",
+      "question": "What role does creative play have in cognitive development?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It is a distraction from real educational progress"
+        },
+        {
+          "id": "B",
+          "text": "It develops spatial awareness, collaboration, and experimentation"
+        },
+        {
+          "id": "C",
+          "text": "It is only valuable for physical exercise"
+        },
+        {
+          "id": "D",
+          "text": "It should only be allowed as a reward for high test marks"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Playful experimentation is the foundation upon which children test hypotheses and build resilience.",
+      "difficulty": "medium",
+      "topic": "play_and_learning",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "guardian_05",
+      "audience": "GUARDIAN",
+      "question": "How does encouraging a child to explain a solution in their own words help their mastery?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It deepens comprehension and reveals gaps in reasoning"
+        },
+        {
+          "id": "B",
+          "text": "It takes too much time compared to reading silent notes"
+        },
+        {
+          "id": "C",
+          "text": "It is only helpful if they use exact book definitions"
+        },
+        {
+          "id": "D",
+          "text": "It has no effect on memory retention"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Articulating reasoning (the Feynman technique) consolidates conceptual understanding.",
+      "difficulty": "medium",
+      "topic": "metacognition",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_01",
+      "audience": "PRE_PRIMARY",
+      "question": "Which colour is a ripe banana?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Blue"
+        },
+        {
+          "id": "B",
+          "text": "Yellow"
+        },
+        {
+          "id": "C",
+          "text": "Green"
+        },
+        {
+          "id": "D",
+          "text": "Purple"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "A ripe banana is yellow!",
+      "difficulty": "medium",
+      "topic": "colours",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_02",
+      "audience": "PRE_PRIMARY",
+      "question": "How many legs does a cat have?",
+      "description": "Count them: 1, 2, 3 ...",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "A cat walks on 4 legs.",
+      "difficulty": "medium",
+      "topic": "counting",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_03",
+      "audience": "PRE_PRIMARY",
+      "question": "Which one is round like a ball?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "A box"
+        },
+        {
+          "id": "B",
+          "text": "A book"
+        },
+        {
+          "id": "C",
+          "text": "An orange"
+        },
+        {
+          "id": "D",
+          "text": "A pencil"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "An orange is round, just like a ball.",
+      "difficulty": "medium",
+      "topic": "shapes",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_04",
+      "audience": "PRE_PRIMARY",
+      "question": "Which animal says \"moo\"?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Cow"
+        },
+        {
+          "id": "B",
+          "text": "Dog"
+        },
+        {
+          "id": "C",
+          "text": "Duck"
+        },
+        {
+          "id": "D",
+          "text": "Cat"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Cows say moo!",
+      "difficulty": "medium",
+      "topic": "animals",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "pre_primary_05",
+      "audience": "PRE_PRIMARY",
+      "question": "What do we use to brush our teeth?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "A spoon"
+        },
+        {
+          "id": "B",
+          "text": "A toothbrush"
+        },
+        {
+          "id": "C",
+          "text": "A comb"
+        },
+        {
+          "id": "D",
+          "text": "A crayon"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "We brush our teeth with a toothbrush every morning and night.",
+      "difficulty": "medium",
+      "topic": "healthy_habits",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_01",
+      "audience": "CLASS_1",
+      "question": "Look at the pattern: 2, 4, 6, 8, ___. What comes next?",
+      "description": "Count by twos!",
+      "options": [
+        {
+          "id": "A",
+          "text": "9"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "11"
+        },
+        {
+          "id": "D",
+          "text": "12"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "We are adding 2 each time: 8 + 2 = 10.",
+      "difficulty": "medium",
+      "topic": "numbers",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_02",
+      "audience": "CLASS_1",
+      "question": "Which shape has 3 sides and 3 corners?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Square"
+        },
+        {
+          "id": "B",
+          "text": "Circle"
+        },
+        {
+          "id": "C",
+          "text": "Triangle"
+        },
+        {
+          "id": "D",
+          "text": "Rectangle"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "A triangle always has 3 straight sides and 3 corners.",
+      "difficulty": "medium",
+      "topic": "geometry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_03",
+      "audience": "CLASS_1",
+      "question": "A unicorn saw 3 birds on a tree. 2 more birds flew in. How many birds are there now?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "7"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "3 + 2 = 5 birds in total!",
+      "difficulty": "medium",
+      "topic": "addition",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_04",
+      "audience": "CLASS_1",
+      "question": "Which animal lives in water and breathes with gills?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Lion"
+        },
+        {
+          "id": "B",
+          "text": "Fish"
+        },
+        {
+          "id": "C",
+          "text": "Eagle"
+        },
+        {
+          "id": "D",
+          "text": "Elephant"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Fish live in water and use their gills to breathe.",
+      "difficulty": "medium",
+      "topic": "nature",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_05",
+      "audience": "CLASS_1",
+      "question": "Which object will float on water?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "A heavy metal spoon"
+        },
+        {
+          "id": "B",
+          "text": "A stone"
+        },
+        {
+          "id": "C",
+          "text": "A dry leaf"
+        },
+        {
+          "id": "D",
+          "text": "An iron key"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Dry leaves are light and have buoyancy, so they float on water.",
+      "difficulty": "medium",
+      "topic": "science_exploration",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_01",
+      "audience": "CLASS_2",
+      "question": "Which number completes the pattern: 5, 10, 15, 20, ___?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "22"
+        },
+        {
+          "id": "B",
+          "text": "25"
+        },
+        {
+          "id": "C",
+          "text": "30"
+        },
+        {
+          "id": "D",
+          "text": "35"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The pattern increases by 5: 20 + 5 = 25.",
+      "difficulty": "medium",
+      "topic": "number_patterns",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_02",
+      "audience": "CLASS_2",
+      "question": "If a clock shows 3:00, where does the minute hand point?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "At 12"
+        },
+        {
+          "id": "B",
+          "text": "At 3"
+        },
+        {
+          "id": "C",
+          "text": "At 6"
+        },
+        {
+          "id": "D",
+          "text": "At 9"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "At exact hour marks, the minute hand points directly at 12.",
+      "difficulty": "medium",
+      "topic": "time_measurement",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_03",
+      "audience": "CLASS_2",
+      "question": "Which of these is a source of natural light during daytime?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Torch"
+        },
+        {
+          "id": "B",
+          "text": "The Sun"
+        },
+        {
+          "id": "C",
+          "text": "Light bulb"
+        },
+        {
+          "id": "D",
+          "text": "Mirror"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The Sun is our primary source of natural light and heat.",
+      "difficulty": "medium",
+      "topic": "natural_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_04",
+      "audience": "CLASS_2",
+      "question": "A box has 14 apples. You give 6 apples to friends. How many apples remain in the box?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "7"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "9"
+        },
+        {
+          "id": "D",
+          "text": "10"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "14 - 6 = 8 apples left.",
+      "difficulty": "medium",
+      "topic": "subtraction",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_05",
+      "audience": "CLASS_2",
+      "question": "Which plant part grows under the ground and absorbs water?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Flower"
+        },
+        {
+          "id": "B",
+          "text": "Leaf"
+        },
+        {
+          "id": "C",
+          "text": "Root"
+        },
+        {
+          "id": "D",
+          "text": "Fruit"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Roots grow in the soil to absorb water and essential nutrients.",
+      "difficulty": "medium",
+      "topic": "plants",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_01",
+      "audience": "CLASS_3",
+      "question": "What is 7 groups of 4 stars?",
+      "description": "7 × 4 = ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "24"
+        },
+        {
+          "id": "B",
+          "text": "26"
+        },
+        {
+          "id": "C",
+          "text": "28"
+        },
+        {
+          "id": "D",
+          "text": "32"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "7 multiplied by 4 equals 28.",
+      "difficulty": "medium",
+      "topic": "multiplication",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_02",
+      "audience": "CLASS_3",
+      "question": "Which state of water is invisible and present in the air?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Liquid water"
+        },
+        {
+          "id": "B",
+          "text": "Ice cubes"
+        },
+        {
+          "id": "C",
+          "text": "Water vapour"
+        },
+        {
+          "id": "D",
+          "text": "Snowflakes"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Water vapour is the gaseous, invisible form of water in the atmosphere.",
+      "difficulty": "medium",
+      "topic": "states_of_matter",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_03",
+      "audience": "CLASS_3",
+      "question": "A square has sides of 5 cm each. What is its perimeter?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "15 cm"
+        },
+        {
+          "id": "B",
+          "text": "20 cm"
+        },
+        {
+          "id": "C",
+          "text": "25 cm"
+        },
+        {
+          "id": "D",
+          "text": "30 cm"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Perimeter of a square = 4 × side length = 4 × 5 = 20 cm.",
+      "difficulty": "medium",
+      "topic": "geometry_perimeter",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_04",
+      "audience": "CLASS_3",
+      "question": "Which direction does the sun rise in the morning?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "North"
+        },
+        {
+          "id": "B",
+          "text": "East"
+        },
+        {
+          "id": "C",
+          "text": "South"
+        },
+        {
+          "id": "D",
+          "text": "West"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Because Earth rotates toward the east, the sun appears to rise in the East.",
+      "difficulty": "medium",
+      "topic": "geography_cardinal",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_05",
+      "audience": "CLASS_3",
+      "question": "Which fraction is greater than 1/4?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/8"
+        },
+        {
+          "id": "B",
+          "text": "1/5"
+        },
+        {
+          "id": "C",
+          "text": "1/2"
+        },
+        {
+          "id": "D",
+          "text": "1/6"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "1/2 represents two quarters (2/4), which is larger than 1/4.",
+      "difficulty": "medium",
+      "topic": "fractions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_01",
+      "audience": "CLASS_4",
+      "question": "A train travels 60 kilometres in 1 hour. How far does it travel in 3 hours at constant speed?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "120 km"
+        },
+        {
+          "id": "B",
+          "text": "160 km"
+        },
+        {
+          "id": "C",
+          "text": "180 km"
+        },
+        {
+          "id": "D",
+          "text": "200 km"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Distance = Speed × Time = 60 km/h × 3 h = 180 km.",
+      "difficulty": "medium",
+      "topic": "speed_and_distance",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_02",
+      "audience": "CLASS_4",
+      "question": "Which simple machine is used in a see-saw playground game?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Lever"
+        },
+        {
+          "id": "B",
+          "text": "Pulley"
+        },
+        {
+          "id": "C",
+          "text": "Screw"
+        },
+        {
+          "id": "D",
+          "text": "Wheel and axle"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "A see-saw is a Class 1 lever with the fulcrum in the centre.",
+      "difficulty": "medium",
+      "topic": "simple_machines",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_03",
+      "audience": "CLASS_4",
+      "question": "What is the sum of angles in any triangle?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "90 degrees"
+        },
+        {
+          "id": "B",
+          "text": "180 degrees"
+        },
+        {
+          "id": "C",
+          "text": "270 degrees"
+        },
+        {
+          "id": "D",
+          "text": "360 degrees"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The interior angles of any triangle always add up to 180 degrees.",
+      "difficulty": "medium",
+      "topic": "angles_geometry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_04",
+      "audience": "CLASS_4",
+      "question": "Plants make their food using sunlight, carbon dioxide, and water in a process called:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Respiration"
+        },
+        {
+          "id": "B",
+          "text": "Photosynthesis"
+        },
+        {
+          "id": "C",
+          "text": "Evaporation"
+        },
+        {
+          "id": "D",
+          "text": "Germination"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Photosynthesis transforms solar energy into chemical energy stored in glucose.",
+      "difficulty": "medium",
+      "topic": "biology_photosynthesis",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_05",
+      "audience": "CLASS_4",
+      "question": "Which of the following is equivalent to 0.75?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/2"
+        },
+        {
+          "id": "B",
+          "text": "2/3"
+        },
+        {
+          "id": "C",
+          "text": "3/4"
+        },
+        {
+          "id": "D",
+          "text": "4/5"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "3 divided by 4 equals 0.75 (or 75%).",
+      "difficulty": "medium",
+      "topic": "decimals_fractions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_01",
+      "audience": "CLASS_5",
+      "question": "Which number completes the pattern: 2, 6, 18, 54, ___?",
+      "description": "Look at the ratio between adjacent numbers.",
+      "options": [
+        {
+          "id": "A",
+          "text": "108"
+        },
+        {
+          "id": "B",
+          "text": "144"
+        },
+        {
+          "id": "C",
+          "text": "162"
+        },
+        {
+          "id": "D",
+          "text": "172"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Each term is multiplied by 3: 54 × 3 = 162.",
+      "difficulty": "medium",
+      "topic": "geometric_patterns",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_02",
+      "audience": "CLASS_5",
+      "question": "What is the boiling point of pure water at standard sea level atmospheric pressure?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "50 °C"
+        },
+        {
+          "id": "B",
+          "text": "80 °C"
+        },
+        {
+          "id": "C",
+          "text": "100 °C"
+        },
+        {
+          "id": "D",
+          "text": "120 °C"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Pure water boils at 100 °C (212 °F) at sea level pressure.",
+      "difficulty": "medium",
+      "topic": "physical_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_03",
+      "audience": "CLASS_5",
+      "question": "If a rectangle has length 8 cm and width 5 cm, what is its area?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "26 cm²"
+        },
+        {
+          "id": "B",
+          "text": "40 cm²"
+        },
+        {
+          "id": "C",
+          "text": "48 cm²"
+        },
+        {
+          "id": "D",
+          "text": "52 cm²"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Area of rectangle = Length × Width = 8 × 5 = 40 cm².",
+      "difficulty": "medium",
+      "topic": "area_calculation",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_04",
+      "audience": "CLASS_5",
+      "question": "Which gas is most abundant in Earth's atmosphere?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Oxygen"
+        },
+        {
+          "id": "B",
+          "text": "Nitrogen"
+        },
+        {
+          "id": "C",
+          "text": "Carbon dioxide"
+        },
+        {
+          "id": "D",
+          "text": "Argon"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Nitrogen makes up approximately 78% of Earth's atmosphere.",
+      "difficulty": "medium",
+      "topic": "earth_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_05",
+      "audience": "CLASS_5",
+      "question": "A robot turns 90° clockwise, then 180° clockwise. How many degrees total did it turn?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "210°"
+        },
+        {
+          "id": "B",
+          "text": "240°"
+        },
+        {
+          "id": "C",
+          "text": "270°"
+        },
+        {
+          "id": "D",
+          "text": "360°"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "90° + 180° = 270° clockwise rotation.",
+      "difficulty": "medium",
+      "topic": "angles_and_robotics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_01",
+      "audience": "CLASS_6",
+      "question": "What is the Least Common Multiple (LCM) of 6 and 8?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "12"
+        },
+        {
+          "id": "B",
+          "text": "16"
+        },
+        {
+          "id": "C",
+          "text": "24"
+        },
+        {
+          "id": "D",
+          "text": "48"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Multiples of 6: 6, 12, 18, 24... Multiples of 8: 8, 16, 24... The smallest common is 24.",
+      "difficulty": "medium",
+      "topic": "lcm_hcf",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_02",
+      "audience": "CLASS_6",
+      "question": "What happens to the shadow of a flagpole as midday (solar noon) approaches?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It grows longer"
+        },
+        {
+          "id": "B",
+          "text": "It becomes shorter"
+        },
+        {
+          "id": "C",
+          "text": "It disappears completely all year round"
+        },
+        {
+          "id": "D",
+          "text": "Its length never changes"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "As the sun rises higher overhead toward noon, cast shadows become shorter.",
+      "difficulty": "medium",
+      "topic": "light_and_shadows",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_03",
+      "audience": "CLASS_6",
+      "question": "Which organelle is known as the powerhouse of the cell?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Nucleus"
+        },
+        {
+          "id": "B",
+          "text": "Ribosome"
+        },
+        {
+          "id": "C",
+          "text": "Mitochondria"
+        },
+        {
+          "id": "D",
+          "text": "Cell wall"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Mitochondria produce ATP through cellular respiration, powering cellular activities.",
+      "difficulty": "medium",
+      "topic": "cellular_biology",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_04",
+      "audience": "CLASS_6",
+      "question": "In an electric circuit, what component opens or closes the flow of electric current?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Switch"
+        },
+        {
+          "id": "B",
+          "text": "Battery"
+        },
+        {
+          "id": "C",
+          "text": "Bulb filament"
+        },
+        {
+          "id": "D",
+          "text": "Insulating tape"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "A switch bridges or breaks the conductive path in an electric circuit.",
+      "difficulty": "medium",
+      "topic": "basic_electricity",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_05",
+      "audience": "CLASS_6",
+      "question": "If the ratio of boys to girls in a robotics club is 3:2, and there are 15 boys, how many girls are there?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "15 / 3 = 5 multiplier. 5 × 2 = 10 girls.",
+      "difficulty": "medium",
+      "topic": "ratios_proportions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_01",
+      "audience": "CLASS_7",
+      "question": "What is the value of x in the equation: 3x - 7 = 14?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "8"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "3x = 14 + 7 = 21 -> x = 21 / 3 = 7.",
+      "difficulty": "medium",
+      "topic": "simple_algebra",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_02",
+      "audience": "CLASS_7",
+      "question": "Lemon juice tastes sour and turns blue litmus red. This indicates it is:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Acidic"
+        },
+        {
+          "id": "B",
+          "text": "Basic / Alkaline"
+        },
+        {
+          "id": "C",
+          "text": "Neutral"
+        },
+        {
+          "id": "D",
+          "text": "Metallic"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Acids have a sour taste and turn blue litmus paper red (citric acid in lemons).",
+      "difficulty": "medium",
+      "topic": "acids_and_bases",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_03",
+      "audience": "CLASS_7",
+      "question": "A cyclist rides 36 km/h. How many metres does the cyclist travel in 1 second?",
+      "description": "Convert km/h to m/s.",
+      "options": [
+        {
+          "id": "A",
+          "text": "5 m"
+        },
+        {
+          "id": "B",
+          "text": "10 m"
+        },
+        {
+          "id": "C",
+          "text": "15 m"
+        },
+        {
+          "id": "D",
+          "text": "20 m"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Multiply by 5/18: 36 × (5/18) = 10 m/s.",
+      "difficulty": "medium",
+      "topic": "unit_conversion",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_04",
+      "audience": "CLASS_7",
+      "question": "Heat transfer through vacuum (such as sunlight reaching Earth) occurs via:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Conduction"
+        },
+        {
+          "id": "B",
+          "text": "Convection"
+        },
+        {
+          "id": "C",
+          "text": "Radiation"
+        },
+        {
+          "id": "D",
+          "text": "Sublimation"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Radiation transmits thermal energy via electromagnetic waves without requiring a material medium.",
+      "difficulty": "medium",
+      "topic": "heat_transfer",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_05",
+      "audience": "CLASS_7",
+      "question": "What is the sum of any two supplementary angles?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "90°"
+        },
+        {
+          "id": "B",
+          "text": "180°"
+        },
+        {
+          "id": "C",
+          "text": "270°"
+        },
+        {
+          "id": "D",
+          "text": "360°"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Supplementary angles always sum to 180 degrees.",
+      "difficulty": "medium",
+      "topic": "geometry_lines",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_01",
+      "audience": "CLASS_8",
+      "question": "What is the square root of 196?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "12"
+        },
+        {
+          "id": "B",
+          "text": "13"
+        },
+        {
+          "id": "C",
+          "text": "14"
+        },
+        {
+          "id": "D",
+          "text": "16"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "14 × 14 = 196.",
+      "difficulty": "medium",
+      "topic": "square_roots",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_02",
+      "audience": "CLASS_8",
+      "question": "Friction between moving engine parts is generally reduced using:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Sandpaper"
+        },
+        {
+          "id": "B",
+          "text": "Lubricants (oil/grease)"
+        },
+        {
+          "id": "C",
+          "text": "Water spray"
+        },
+        {
+          "id": "D",
+          "text": "Roughened metal surfaces"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Lubricants form a smooth micro-layer between sliding surfaces to minimize friction and wear.",
+      "difficulty": "medium",
+      "topic": "friction_mechanics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_03",
+      "audience": "CLASS_8",
+      "question": "The binary number 1010 in base 10 (decimal) is equal to:",
+      "description": "1×8 + 0×4 + 1×2 + 0×1",
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "8 + 0 + 2 + 0 = 10 in decimal.",
+      "difficulty": "medium",
+      "topic": "binary_numbers",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_04",
+      "audience": "CLASS_8",
+      "question": "Sound cannot travel through which of the following?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Steel rail"
+        },
+        {
+          "id": "B",
+          "text": "Water"
+        },
+        {
+          "id": "C",
+          "text": "Vacuum"
+        },
+        {
+          "id": "D",
+          "text": "Air"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Sound is a mechanical pressure wave that requires a material medium to propagate.",
+      "difficulty": "medium",
+      "topic": "wave_physics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_05",
+      "audience": "CLASS_8",
+      "question": "If 4 workers can build a prototype in 6 days, how many days will 8 workers take at the same pace?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "2 days"
+        },
+        {
+          "id": "B",
+          "text": "3 days"
+        },
+        {
+          "id": "C",
+          "text": "4 days"
+        },
+        {
+          "id": "D",
+          "text": "5 days"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Inverse proportion: 4 × 6 = 24 worker-days. 24 / 8 = 3 days.",
+      "difficulty": "medium",
+      "topic": "inverse_proportions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_01",
+      "audience": "CLASS_9",
+      "question": "Newton’s First Law of Motion is also widely known as the Law of:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Inertia"
+        },
+        {
+          "id": "B",
+          "text": "Acceleration"
+        },
+        {
+          "id": "C",
+          "text": "Action and Reaction"
+        },
+        {
+          "id": "D",
+          "text": "Gravitation"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Newton’s first law states an object remains in its state of rest or uniform motion unless acted upon by a net external force.",
+      "difficulty": "medium",
+      "topic": "newtonian_mechanics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_02",
+      "audience": "CLASS_9",
+      "question": "What is the SI unit of work and energy?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Watt"
+        },
+        {
+          "id": "B",
+          "text": "Joule"
+        },
+        {
+          "id": "C",
+          "text": "Newton"
+        },
+        {
+          "id": "D",
+          "text": "Pascal"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Work and energy are measured in Joules (1 Joule = 1 Newton-metre).",
+      "difficulty": "medium",
+      "topic": "units_and_dimensions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_03",
+      "audience": "CLASS_9",
+      "question": "What are the roots of the quadratic equation x² - 5x + 6 = 0?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "x = 1 and x = 6"
+        },
+        {
+          "id": "B",
+          "text": "x = 2 and x = 3"
+        },
+        {
+          "id": "C",
+          "text": "x = -2 and x = -3"
+        },
+        {
+          "id": "D",
+          "text": "x = 2 and x = -3"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "(x - 2)(x - 3) = 0, so x = 2 and x = 3.",
+      "difficulty": "medium",
+      "topic": "algebra_quadratics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_04",
+      "audience": "CLASS_9",
+      "question": "The atomic number of an element is determined by the number of:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Neutrons in its nucleus"
+        },
+        {
+          "id": "B",
+          "text": "Protons in its nucleus"
+        },
+        {
+          "id": "C",
+          "text": "Electrons in its outer shell only"
+        },
+        {
+          "id": "D",
+          "text": "Protons plus neutrons"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Atomic number (Z) uniquely identifies an element by the count of protons in its nucleus.",
+      "difficulty": "medium",
+      "topic": "atomic_structure",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_05",
+      "audience": "CLASS_9",
+      "question": "In coordinate geometry, in which quadrant does the point (-4, 5) lie?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Quadrant I"
+        },
+        {
+          "id": "B",
+          "text": "Quadrant II"
+        },
+        {
+          "id": "C",
+          "text": "Quadrant III"
+        },
+        {
+          "id": "D",
+          "text": "Quadrant IV"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Quadrant II has negative x and positive y coordinates.",
+      "difficulty": "medium",
+      "topic": "coordinate_geometry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_01",
+      "audience": "CLASS_10",
+      "question": "According to Ohm's law, if voltage across a resistor doubles while resistance remains constant, the current:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Remains unchanged"
+        },
+        {
+          "id": "B",
+          "text": "Is halved"
+        },
+        {
+          "id": "C",
+          "text": "Doubles"
+        },
+        {
+          "id": "D",
+          "text": "Quadruples"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "V = I × R. When V doubles at constant R, current I must also double.",
+      "difficulty": "medium",
+      "topic": "electricity_ohms_law",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_02",
+      "audience": "CLASS_10",
+      "question": "A convex lens of focal length 20 cm produces a real image of the same size as the object when the object is placed at:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "10 cm"
+        },
+        {
+          "id": "B",
+          "text": "20 cm"
+        },
+        {
+          "id": "C",
+          "text": "40 cm (at 2F)"
+        },
+        {
+          "id": "D",
+          "text": "Infinity"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "At 2F (twice the focal length = 40 cm), a convex lens forms an inverted, real image of identical height at 2F on the opposite side.",
+      "difficulty": "medium",
+      "topic": "optics_lenses",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_03",
+      "audience": "CLASS_10",
+      "question": "What is the chemical formula of rust on iron?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "FeSO4"
+        },
+        {
+          "id": "B",
+          "text": "Fe2O3 · xH2O"
+        },
+        {
+          "id": "C",
+          "text": "FeCl3"
+        },
+        {
+          "id": "D",
+          "text": "FeCO3"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Rust is hydrated iron(III) oxide: Fe2O3 · xH2O.",
+      "difficulty": "medium",
+      "topic": "chemical_reactions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_04",
+      "audience": "CLASS_10",
+      "question": "What is the probability of rolling a prime number on a standard fair six-sided die?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/6"
+        },
+        {
+          "id": "B",
+          "text": "1/3"
+        },
+        {
+          "id": "C",
+          "text": "1/2"
+        },
+        {
+          "id": "D",
+          "text": "2/3"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Prime numbers on a die are 2, 3, and 5 (3 outcomes out of 6) = 3/6 = 1/2.",
+      "difficulty": "medium",
+      "topic": "probability",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_10_05",
+      "audience": "CLASS_10",
+      "question": "Which hereditary material carries genetic instructions in living organisms?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "ATP"
+        },
+        {
+          "id": "B",
+          "text": "DNA"
+        },
+        {
+          "id": "C",
+          "text": "Hemoglobin"
+        },
+        {
+          "id": "D",
+          "text": "Chlorophyll"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Deoxyribonucleic acid (DNA) stores genetic codes across biological generations.",
+      "difficulty": "medium",
+      "topic": "genetics_biology",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_01",
+      "audience": "CLASS_11",
+      "question": "Two vectors of magnitude 3 N and 4 N act at a right angle (90°) to each other. What is their resultant magnitude?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "5 N"
+        },
+        {
+          "id": "B",
+          "text": "7 N"
+        },
+        {
+          "id": "C",
+          "text": "1 N"
+        },
+        {
+          "id": "D",
+          "text": "12 N"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Resultant = √(3² + 4²) = √(9 + 16) = √25 = 5 N.",
+      "difficulty": "medium",
+      "topic": "vector_kinematics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_02",
+      "audience": "CLASS_11",
+      "question": "According to the First Law of Thermodynamics, ΔU = Q - W. What does ΔU represent?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Total entropy change"
+        },
+        {
+          "id": "B",
+          "text": "Change in internal energy of the system"
+        },
+        {
+          "id": "C",
+          "text": "Universal gas constant"
+        },
+        {
+          "id": "D",
+          "text": "Heat released to surroundings"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "ΔU represents the internal energy change resulting from heat added minus work performed.",
+      "difficulty": "medium",
+      "topic": "thermodynamics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_03",
+      "audience": "CLASS_11",
+      "question": "What is the derivative of f(x) = x³ - 4x + 7 with respect to x?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "3x² - 4"
+        },
+        {
+          "id": "B",
+          "text": "3x² + 7"
+        },
+        {
+          "id": "C",
+          "text": "x² - 4"
+        },
+        {
+          "id": "D",
+          "text": "3x³ - 4"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "d/dx (x³) = 3x², d/dx (-4x) = -4, and d/dx (7) = 0. Result: 3x² - 4.",
+      "difficulty": "medium",
+      "topic": "calculus_derivatives",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_04",
+      "audience": "CLASS_11",
+      "question": "Which quantum number primarily determines the energy and size of an atomic orbital?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Principal quantum number (n)"
+        },
+        {
+          "id": "B",
+          "text": "Azimuthal quantum number (l)"
+        },
+        {
+          "id": "C",
+          "text": "Magnetic quantum number (m)"
+        },
+        {
+          "id": "D",
+          "text": "Spin quantum number (s)"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "The principal quantum number n defines the principal electron shell and overall energy scale.",
+      "difficulty": "medium",
+      "topic": "quantum_chemistry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_05",
+      "audience": "CLASS_11",
+      "question": "In Python programming, which data structure is ordered and immutable?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "List"
+        },
+        {
+          "id": "B",
+          "text": "Tuple"
+        },
+        {
+          "id": "C",
+          "text": "Set"
+        },
+        {
+          "id": "D",
+          "text": "Dictionary"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Tuples maintain insertion order and cannot be mutated after initial creation.",
+      "difficulty": "medium",
+      "topic": "computer_science_fundamentals",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_01",
+      "audience": "CLASS_12",
+      "question": "What is the capacitance of a parallel plate capacitor directly proportional to?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Separation distance between plates"
+        },
+        {
+          "id": "B",
+          "text": "Plate area"
+        },
+        {
+          "id": "C",
+          "text": "Applied voltage squared"
+        },
+        {
+          "id": "D",
+          "text": "Total circuit resistance"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "C = εA/d. Capacitance is directly proportional to plate surface area A.",
+      "difficulty": "medium",
+      "topic": "electromagnetism_capacitance",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_02",
+      "audience": "CLASS_12",
+      "question": "Evaluate the definite integral ∫ from 0 to 2 of (3x²) dx:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "6"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "16"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "∫ 3x² dx = x³. Evaluated from 0 to 2: 2³ - 0³ = 8.",
+      "difficulty": "medium",
+      "topic": "calculus_integrals",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_03",
+      "audience": "CLASS_12",
+      "question": "Which phenomenon provides definitive evidence for the wave nature of light?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Photoelectric effect"
+        },
+        {
+          "id": "B",
+          "text": "Interference and diffraction"
+        },
+        {
+          "id": "C",
+          "text": "Compton scattering"
+        },
+        {
+          "id": "D",
+          "text": "Blackbody radiation emission spectra"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Interference and diffraction patterns (as in Young’s double-slit experiment) prove wave characteristics.",
+      "difficulty": "medium",
+      "topic": "wave_optics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_04",
+      "audience": "CLASS_12",
+      "question": "In digital logic, which gate outputs 0 ONLY when both inputs are 1?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "AND"
+        },
+        {
+          "id": "B",
+          "text": "NAND"
+        },
+        {
+          "id": "C",
+          "text": "NOR"
+        },
+        {
+          "id": "D",
+          "text": "XOR"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "A NAND gate is the inverse of AND: it outputs 0 if and only if both inputs are 1.",
+      "difficulty": "medium",
+      "topic": "digital_electronics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_05",
+      "audience": "CLASS_12",
+      "question": "The half-life of a radioactive isotope is 10 days. After 30 days, what fraction of the original sample remains?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/2"
+        },
+        {
+          "id": "B",
+          "text": "1/4"
+        },
+        {
+          "id": "C",
+          "text": "1/8"
+        },
+        {
+          "id": "D",
+          "text": "1/16"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "30 days = 3 half-lives. Remaining fraction = (1/2)³ = 1/8.",
+      "difficulty": "medium",
+      "topic": "nuclear_physics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_01",
+      "audience": "COLLEGE",
+      "question": "What is the average-case time complexity of searching an element in a balanced Binary Search Tree (AVL / Red-Black)?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(log n)"
+        },
+        {
+          "id": "C",
+          "text": "O(n)"
+        },
+        {
+          "id": "D",
+          "text": "O(n log n)"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Balanced BSTs halve the search space at each branch, yielding logarithmic time O(log n).",
+      "difficulty": "medium",
+      "topic": "algorithms_data_structures",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_02",
+      "audience": "COLLEGE",
+      "question": "In relational database theory, what does the \"A\" in ACID transaction guarantees represent?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Availability"
+        },
+        {
+          "id": "B",
+          "text": "Atomicity"
+        },
+        {
+          "id": "C",
+          "text": "Asynchrony"
+        },
+        {
+          "id": "D",
+          "text": "Authentication"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Atomicity ensures that all operations within a transaction succeed together or are completely rolled back.",
+      "difficulty": "medium",
+      "topic": "database_systems",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_03",
+      "audience": "COLLEGE",
+      "question": "Which machine learning concept describes a model learning noise and idiosyncrasies of training data instead of generalising?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Underfitting"
+        },
+        {
+          "id": "B",
+          "text": "Overfitting"
+        },
+        {
+          "id": "C",
+          "text": "Regularisation"
+        },
+        {
+          "id": "D",
+          "text": "Cross-entropy"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Overfitting occurs when high model complexity memorises training noise, damaging test generalization.",
+      "difficulty": "medium",
+      "topic": "artificial_intelligence",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_04",
+      "audience": "COLLEGE",
+      "question": "In systems architecture, what does Amdahl's law quantify?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "The theoretical speedup limit of parallel computing constrained by serial portions"
+        },
+        {
+          "id": "B",
+          "text": "The doubling of transistors on microchips every two years"
+        },
+        {
+          "id": "C",
+          "text": "Network latency proportional to physical transmission distance"
+        },
+        {
+          "id": "D",
+          "text": "Disk input-output throughput saturation in database clusters"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Amdahl’s law defines the maximum theoretical speedup achievable via parallel processors for a workload.",
+      "difficulty": "medium",
+      "topic": "computer_architecture",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_05",
+      "audience": "COLLEGE",
+      "question": "Which of the following is a fundamental pillar of Education 4.0 in engineering and science disciplines?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorising legacy reference handbooks without questioning principles"
+        },
+        {
+          "id": "B",
+          "text": "Interdisciplinary cyber-physical problem solving and experimental iteration"
+        },
+        {
+          "id": "C",
+          "text": "Treating hardware and software as completely isolated fields"
+        },
+        {
+          "id": "D",
+          "text": "Standardised paper tests as the sole assessment metric"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Education 4.0 prepares modern professionals through rapid prototyping, data-driven reasoning, and interconnected systems.",
+      "difficulty": "medium",
+      "topic": "education_4_philosophy",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_01",
+      "audience": "DEMO",
+      "question": "What is the philosophy of Unicorn Learning Lab in Education 4.0?",
+      "description": "Core learning philosophy.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorise and repeat"
+        },
+        {
+          "id": "B",
+          "text": "Think. Explore. Discover."
+        },
+        {
+          "id": "C",
+          "text": "Complete homework worksheets"
+        },
+        {
+          "id": "D",
+          "text": "Follow rigid instructions"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Our philosophy \"Think. Explore. Discover.\" encourages children to question, experiment, and learn joyfully.",
+      "difficulty": "medium",
+      "topic": "demo_philosophy",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_02",
+      "audience": "DEMO",
+      "question": "What is 5 + 7 in mental arithmetic?",
+      "description": "Quick math puzzle.",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "11"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "13"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "5 + 7 = 12.",
+      "difficulty": "medium",
+      "topic": "demo_math",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_03",
+      "audience": "DEMO",
+      "question": "Which of the following is an example of an input device in computing?",
+      "description": "Foundations of digital technology.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Computer Monitor"
+        },
+        {
+          "id": "B",
+          "text": "Audio Speaker"
+        },
+        {
+          "id": "C",
+          "text": "Keyboard / Mouse"
+        },
+        {
+          "id": "D",
+          "text": "Inkjet Printer"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Keyboards and mice send input signals into the computing system.",
+      "difficulty": "medium",
+      "topic": "demo_technology",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_04",
+      "audience": "DEMO",
+      "question": "Which natural satellite orbits planet Earth?",
+      "description": "Space and astronomy exploration.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mars"
+        },
+        {
+          "id": "B",
+          "text": "The Moon"
+        },
+        {
+          "id": "C",
+          "text": "Jupiter"
+        },
+        {
+          "id": "D",
+          "text": "Venus"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The Moon is Earth's natural satellite.",
+      "difficulty": "medium",
+      "topic": "demo_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_05",
+      "audience": "DEMO",
+      "question": "In Education 4.0, what is the best way to handle a design mistake during a project?",
+      "description": "Growth mindset and resilience.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stop working immediately"
+        },
+        {
+          "id": "B",
+          "text": "Analyse what happened, adjust the design, and test again"
+        },
+        {
+          "id": "C",
+          "text": "Hide the mistake from others"
+        },
+        {
+          "id": "D",
+          "text": "Switch to a trivial task"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Iterative testing and learning from errors is the heart of scientific inquiry and engineering.",
+      "difficulty": "medium",
+      "topic": "demo_growth_mindset",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

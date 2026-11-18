@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_4",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_4_01",
+      "audience": "CLASS_4",
+      "question": "A train travels 60 kilometres in 1 hour. How far does it travel in 3 hours at constant speed?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "120 km"
+        },
+        {
+          "id": "B",
+          "text": "160 km"
+        },
+        {
+          "id": "C",
+          "text": "180 km"
+        },
+        {
+          "id": "D",
+          "text": "200 km"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Distance = Speed × Time = 60 km/h × 3 h = 180 km.",
+      "difficulty": "medium",
+      "topic": "speed_and_distance",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_02",
+      "audience": "CLASS_4",
+      "question": "Which simple machine is used in a see-saw playground game?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Lever"
+        },
+        {
+          "id": "B",
+          "text": "Pulley"
+        },
+        {
+          "id": "C",
+          "text": "Screw"
+        },
+        {
+          "id": "D",
+          "text": "Wheel and axle"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "A see-saw is a Class 1 lever with the fulcrum in the centre.",
+      "difficulty": "medium",
+      "topic": "simple_machines",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_03",
+      "audience": "CLASS_4",
+      "question": "What is the sum of angles in any triangle?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "90 degrees"
+        },
+        {
+          "id": "B",
+          "text": "180 degrees"
+        },
+        {
+          "id": "C",
+          "text": "270 degrees"
+        },
+        {
+          "id": "D",
+          "text": "360 degrees"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The interior angles of any triangle always add up to 180 degrees.",
+      "difficulty": "medium",
+      "topic": "angles_geometry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_04",
+      "audience": "CLASS_4",
+      "question": "Plants make their food using sunlight, carbon dioxide, and water in a process called:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Respiration"
+        },
+        {
+          "id": "B",
+          "text": "Photosynthesis"
+        },
+        {
+          "id": "C",
+          "text": "Evaporation"
+        },
+        {
+          "id": "D",
+          "text": "Germination"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Photosynthesis transforms solar energy into chemical energy stored in glucose.",
+      "difficulty": "medium",
+      "topic": "biology_photosynthesis",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_4_05",
+      "audience": "CLASS_4",
+      "question": "Which of the following is equivalent to 0.75?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/2"
+        },
+        {
+          "id": "B",
+          "text": "2/3"
+        },
+        {
+          "id": "C",
+          "text": "3/4"
+        },
+        {
+          "id": "D",
+          "text": "4/5"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "3 divided by 4 equals 0.75 (or 75%).",
+      "difficulty": "medium",
+      "topic": "decimals_fractions",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

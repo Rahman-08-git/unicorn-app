@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_6",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_6_01",
+      "audience": "CLASS_6",
+      "question": "What is the Least Common Multiple (LCM) of 6 and 8?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "12"
+        },
+        {
+          "id": "B",
+          "text": "16"
+        },
+        {
+          "id": "C",
+          "text": "24"
+        },
+        {
+          "id": "D",
+          "text": "48"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Multiples of 6: 6, 12, 18, 24... Multiples of 8: 8, 16, 24... The smallest common is 24.",
+      "difficulty": "medium",
+      "topic": "lcm_hcf",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_02",
+      "audience": "CLASS_6",
+      "question": "What happens to the shadow of a flagpole as midday (solar noon) approaches?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "It grows longer"
+        },
+        {
+          "id": "B",
+          "text": "It becomes shorter"
+        },
+        {
+          "id": "C",
+          "text": "It disappears completely all year round"
+        },
+        {
+          "id": "D",
+          "text": "Its length never changes"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "As the sun rises higher overhead toward noon, cast shadows become shorter.",
+      "difficulty": "medium",
+      "topic": "light_and_shadows",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_03",
+      "audience": "CLASS_6",
+      "question": "Which organelle is known as the powerhouse of the cell?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Nucleus"
+        },
+        {
+          "id": "B",
+          "text": "Ribosome"
+        },
+        {
+          "id": "C",
+          "text": "Mitochondria"
+        },
+        {
+          "id": "D",
+          "text": "Cell wall"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Mitochondria produce ATP through cellular respiration, powering cellular activities.",
+      "difficulty": "medium",
+      "topic": "cellular_biology",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_04",
+      "audience": "CLASS_6",
+      "question": "In an electric circuit, what component opens or closes the flow of electric current?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Switch"
+        },
+        {
+          "id": "B",
+          "text": "Battery"
+        },
+        {
+          "id": "C",
+          "text": "Bulb filament"
+        },
+        {
+          "id": "D",
+          "text": "Insulating tape"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "A switch bridges or breaks the conductive path in an electric circuit.",
+      "difficulty": "medium",
+      "topic": "basic_electricity",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_6_05",
+      "audience": "CLASS_6",
+      "question": "If the ratio of boys to girls in a robotics club is 3:2, and there are 15 boys, how many girls are there?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "15 / 3 = 5 multiplier. 5 × 2 = 10 girls.",
+      "difficulty": "medium",
+      "topic": "ratios_proportions",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

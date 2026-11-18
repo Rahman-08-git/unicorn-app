@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_8",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_8_01",
+      "audience": "CLASS_8",
+      "question": "What is the square root of 196?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "12"
+        },
+        {
+          "id": "B",
+          "text": "13"
+        },
+        {
+          "id": "C",
+          "text": "14"
+        },
+        {
+          "id": "D",
+          "text": "16"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "14 × 14 = 196.",
+      "difficulty": "medium",
+      "topic": "square_roots",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_02",
+      "audience": "CLASS_8",
+      "question": "Friction between moving engine parts is generally reduced using:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Sandpaper"
+        },
+        {
+          "id": "B",
+          "text": "Lubricants (oil/grease)"
+        },
+        {
+          "id": "C",
+          "text": "Water spray"
+        },
+        {
+          "id": "D",
+          "text": "Roughened metal surfaces"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Lubricants form a smooth micro-layer between sliding surfaces to minimize friction and wear.",
+      "difficulty": "medium",
+      "topic": "friction_mechanics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_03",
+      "audience": "CLASS_8",
+      "question": "The binary number 1010 in base 10 (decimal) is equal to:",
+      "description": "1×8 + 0×4 + 1×2 + 0×1",
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "8 + 0 + 2 + 0 = 10 in decimal.",
+      "difficulty": "medium",
+      "topic": "binary_numbers",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_04",
+      "audience": "CLASS_8",
+      "question": "Sound cannot travel through which of the following?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Steel rail"
+        },
+        {
+          "id": "B",
+          "text": "Water"
+        },
+        {
+          "id": "C",
+          "text": "Vacuum"
+        },
+        {
+          "id": "D",
+          "text": "Air"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Sound is a mechanical pressure wave that requires a material medium to propagate.",
+      "difficulty": "medium",
+      "topic": "wave_physics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_8_05",
+      "audience": "CLASS_8",
+      "question": "If 4 workers can build a prototype in 6 days, how many days will 8 workers take at the same pace?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "2 days"
+        },
+        {
+          "id": "B",
+          "text": "3 days"
+        },
+        {
+          "id": "C",
+          "text": "4 days"
+        },
+        {
+          "id": "D",
+          "text": "5 days"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Inverse proportion: 4 × 6 = 24 worker-days. 24 / 8 = 3 days.",
+      "difficulty": "medium",
+      "topic": "inverse_proportions",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_12",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_12_01",
+      "audience": "CLASS_12",
+      "question": "What is the capacitance of a parallel plate capacitor directly proportional to?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Separation distance between plates"
+        },
+        {
+          "id": "B",
+          "text": "Plate area"
+        },
+        {
+          "id": "C",
+          "text": "Applied voltage squared"
+        },
+        {
+          "id": "D",
+          "text": "Total circuit resistance"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "C = εA/d. Capacitance is directly proportional to plate surface area A.",
+      "difficulty": "medium",
+      "topic": "electromagnetism_capacitance",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_02",
+      "audience": "CLASS_12",
+      "question": "Evaluate the definite integral ∫ from 0 to 2 of (3x²) dx:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "6"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "16"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "∫ 3x² dx = x³. Evaluated from 0 to 2: 2³ - 0³ = 8.",
+      "difficulty": "medium",
+      "topic": "calculus_integrals",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_03",
+      "audience": "CLASS_12",
+      "question": "Which phenomenon provides definitive evidence for the wave nature of light?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Photoelectric effect"
+        },
+        {
+          "id": "B",
+          "text": "Interference and diffraction"
+        },
+        {
+          "id": "C",
+          "text": "Compton scattering"
+        },
+        {
+          "id": "D",
+          "text": "Blackbody radiation emission spectra"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Interference and diffraction patterns (as in Young’s double-slit experiment) prove wave characteristics.",
+      "difficulty": "medium",
+      "topic": "wave_optics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_04",
+      "audience": "CLASS_12",
+      "question": "In digital logic, which gate outputs 0 ONLY when both inputs are 1?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "AND"
+        },
+        {
+          "id": "B",
+          "text": "NAND"
+        },
+        {
+          "id": "C",
+          "text": "NOR"
+        },
+        {
+          "id": "D",
+          "text": "XOR"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "A NAND gate is the inverse of AND: it outputs 0 if and only if both inputs are 1.",
+      "difficulty": "medium",
+      "topic": "digital_electronics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_12_05",
+      "audience": "CLASS_12",
+      "question": "The half-life of a radioactive isotope is 10 days. After 30 days, what fraction of the original sample remains?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/2"
+        },
+        {
+          "id": "B",
+          "text": "1/4"
+        },
+        {
+          "id": "C",
+          "text": "1/8"
+        },
+        {
+          "id": "D",
+          "text": "1/16"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "30 days = 3 half-lives. Remaining fraction = (1/2)³ = 1/8.",
+      "difficulty": "medium",
+      "topic": "nuclear_physics",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

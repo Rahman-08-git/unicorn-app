@@ -1,0 +1,156 @@
+{
+  "audience": "COLLEGE",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "college_01",
+      "audience": "COLLEGE",
+      "question": "What is the average-case time complexity of searching an element in a balanced Binary Search Tree (AVL / Red-Black)?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(log n)"
+        },
+        {
+          "id": "C",
+          "text": "O(n)"
+        },
+        {
+          "id": "D",
+          "text": "O(n log n)"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Balanced BSTs halve the search space at each branch, yielding logarithmic time O(log n).",
+      "difficulty": "medium",
+      "topic": "algorithms_data_structures",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_02",
+      "audience": "COLLEGE",
+      "question": "In relational database theory, what does the \"A\" in ACID transaction guarantees represent?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Availability"
+        },
+        {
+          "id": "B",
+          "text": "Atomicity"
+        },
+        {
+          "id": "C",
+          "text": "Asynchrony"
+        },
+        {
+          "id": "D",
+          "text": "Authentication"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Atomicity ensures that all operations within a transaction succeed together or are completely rolled back.",
+      "difficulty": "medium",
+      "topic": "database_systems",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_03",
+      "audience": "COLLEGE",
+      "question": "Which machine learning concept describes a model learning noise and idiosyncrasies of training data instead of generalising?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Underfitting"
+        },
+        {
+          "id": "B",
+          "text": "Overfitting"
+        },
+        {
+          "id": "C",
+          "text": "Regularisation"
+        },
+        {
+          "id": "D",
+          "text": "Cross-entropy"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Overfitting occurs when high model complexity memorises training noise, damaging test generalization.",
+      "difficulty": "medium",
+      "topic": "artificial_intelligence",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_04",
+      "audience": "COLLEGE",
+      "question": "In systems architecture, what does Amdahl's law quantify?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "The theoretical speedup limit of parallel computing constrained by serial portions"
+        },
+        {
+          "id": "B",
+          "text": "The doubling of transistors on microchips every two years"
+        },
+        {
+          "id": "C",
+          "text": "Network latency proportional to physical transmission distance"
+        },
+        {
+          "id": "D",
+          "text": "Disk input-output throughput saturation in database clusters"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Amdahl’s law defines the maximum theoretical speedup achievable via parallel processors for a workload.",
+      "difficulty": "medium",
+      "topic": "computer_architecture",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "college_05",
+      "audience": "COLLEGE",
+      "question": "Which of the following is a fundamental pillar of Education 4.0 in engineering and science disciplines?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorising legacy reference handbooks without questioning principles"
+        },
+        {
+          "id": "B",
+          "text": "Interdisciplinary cyber-physical problem solving and experimental iteration"
+        },
+        {
+          "id": "C",
+          "text": "Treating hardware and software as completely isolated fields"
+        },
+        {
+          "id": "D",
+          "text": "Standardised paper tests as the sole assessment metric"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Education 4.0 prepares modern professionals through rapid prototyping, data-driven reasoning, and interconnected systems.",
+      "difficulty": "medium",
+      "topic": "education_4_philosophy",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

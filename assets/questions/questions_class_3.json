@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_3",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_3_01",
+      "audience": "CLASS_3",
+      "question": "What is 7 groups of 4 stars?",
+      "description": "7 × 4 = ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "24"
+        },
+        {
+          "id": "B",
+          "text": "26"
+        },
+        {
+          "id": "C",
+          "text": "28"
+        },
+        {
+          "id": "D",
+          "text": "32"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "7 multiplied by 4 equals 28.",
+      "difficulty": "medium",
+      "topic": "multiplication",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_02",
+      "audience": "CLASS_3",
+      "question": "Which state of water is invisible and present in the air?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Liquid water"
+        },
+        {
+          "id": "B",
+          "text": "Ice cubes"
+        },
+        {
+          "id": "C",
+          "text": "Water vapour"
+        },
+        {
+          "id": "D",
+          "text": "Snowflakes"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Water vapour is the gaseous, invisible form of water in the atmosphere.",
+      "difficulty": "medium",
+      "topic": "states_of_matter",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_03",
+      "audience": "CLASS_3",
+      "question": "A square has sides of 5 cm each. What is its perimeter?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "15 cm"
+        },
+        {
+          "id": "B",
+          "text": "20 cm"
+        },
+        {
+          "id": "C",
+          "text": "25 cm"
+        },
+        {
+          "id": "D",
+          "text": "30 cm"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Perimeter of a square = 4 × side length = 4 × 5 = 20 cm.",
+      "difficulty": "medium",
+      "topic": "geometry_perimeter",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_04",
+      "audience": "CLASS_3",
+      "question": "Which direction does the sun rise in the morning?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "North"
+        },
+        {
+          "id": "B",
+          "text": "East"
+        },
+        {
+          "id": "C",
+          "text": "South"
+        },
+        {
+          "id": "D",
+          "text": "West"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Because Earth rotates toward the east, the sun appears to rise in the East.",
+      "difficulty": "medium",
+      "topic": "geography_cardinal",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_3_05",
+      "audience": "CLASS_3",
+      "question": "Which fraction is greater than 1/4?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "1/8"
+        },
+        {
+          "id": "B",
+          "text": "1/5"
+        },
+        {
+          "id": "C",
+          "text": "1/2"
+        },
+        {
+          "id": "D",
+          "text": "1/6"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "1/2 represents two quarters (2/4), which is larger than 1/4.",
+      "difficulty": "medium",
+      "topic": "fractions",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

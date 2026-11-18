@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_2",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_2_01",
+      "audience": "CLASS_2",
+      "question": "Which number completes the pattern: 5, 10, 15, 20, ___?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "22"
+        },
+        {
+          "id": "B",
+          "text": "25"
+        },
+        {
+          "id": "C",
+          "text": "30"
+        },
+        {
+          "id": "D",
+          "text": "35"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The pattern increases by 5: 20 + 5 = 25.",
+      "difficulty": "medium",
+      "topic": "number_patterns",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_02",
+      "audience": "CLASS_2",
+      "question": "If a clock shows 3:00, where does the minute hand point?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "At 12"
+        },
+        {
+          "id": "B",
+          "text": "At 3"
+        },
+        {
+          "id": "C",
+          "text": "At 6"
+        },
+        {
+          "id": "D",
+          "text": "At 9"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "At exact hour marks, the minute hand points directly at 12.",
+      "difficulty": "medium",
+      "topic": "time_measurement",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_03",
+      "audience": "CLASS_2",
+      "question": "Which of these is a source of natural light during daytime?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Torch"
+        },
+        {
+          "id": "B",
+          "text": "The Sun"
+        },
+        {
+          "id": "C",
+          "text": "Light bulb"
+        },
+        {
+          "id": "D",
+          "text": "Mirror"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The Sun is our primary source of natural light and heat.",
+      "difficulty": "medium",
+      "topic": "natural_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_04",
+      "audience": "CLASS_2",
+      "question": "A box has 14 apples. You give 6 apples to friends. How many apples remain in the box?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "7"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "9"
+        },
+        {
+          "id": "D",
+          "text": "10"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "14 - 6 = 8 apples left.",
+      "difficulty": "medium",
+      "topic": "subtraction",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_2_05",
+      "audience": "CLASS_2",
+      "question": "Which plant part grows under the ground and absorbs water?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Flower"
+        },
+        {
+          "id": "B",
+          "text": "Leaf"
+        },
+        {
+          "id": "C",
+          "text": "Root"
+        },
+        {
+          "id": "D",
+          "text": "Fruit"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Roots grow in the soil to absorb water and essential nutrients.",
+      "difficulty": "medium",
+      "topic": "plants",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "audience": "PARENT",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "parent_01",
+      "audience": "PARENT",
+      "question": "Which learning approach best develops long-term problem-solving ability in children?",
+      "description": "Education 4.0 highlights active inquiry.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorising textbook answers word-for-word"
+        },
+        {
+          "id": "B",
+          "text": "Exploring concepts through hands-on experimentation"
+        },
+        {
+          "id": "C",
+          "text": "Completing repetitive calculation worksheets only"
+        },
+        {
+          "id": "D",
+          "text": "Limiting questions strictly to the syllabus"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Hands-on experimentation helps children build conceptual understanding and adaptability.",
+      "difficulty": "medium",
+      "topic": "educational_philosophy",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_02",
+      "audience": "PARENT",
+      "question": "When a child makes an unexpected mistake while solving a problem, what is the most constructive response?",
+      "description": "Cultivating a growth mindset.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Correct them immediately and give the final answer"
+        },
+        {
+          "id": "B",
+          "text": "Ask open-ended questions to guide them to discover why"
+        },
+        {
+          "id": "C",
+          "text": "Express disappointment so they pay more attention"
+        },
+        {
+          "id": "D",
+          "text": "Switch to an easier task immediately"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Open-ended questions help learners reflect, analyse errors, and build metacognitive skills.",
+      "difficulty": "medium",
+      "topic": "growth_mindset",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_03",
+      "audience": "PARENT",
+      "question": "In \"Education 4.0\", technology is primarily seen as:",
+      "description": "Understanding the role of modern digital tools.",
+      "options": [
+        {
+          "id": "A",
+          "text": "A tool for children to create, model, and understand real systems"
+        },
+        {
+          "id": "B",
+          "text": "A passive video screen to keep children occupied"
+        },
+        {
+          "id": "C",
+          "text": "A replacement for teacher-guided discussions"
+        },
+        {
+          "id": "D",
+          "text": "Only useful for high-school students"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Technology empowers young learners to model real-world phenomena and create original solutions.",
+      "difficulty": "medium",
+      "topic": "technology_in_education",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_04",
+      "audience": "PARENT",
+      "question": "How can parents best support curiosity in everyday home routines?",
+      "description": "Daily observational habits.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Answer every question with \"because I said so\""
+        },
+        {
+          "id": "B",
+          "text": "Investigate everyday phenomena together (e.g. why bread rises)"
+        },
+        {
+          "id": "C",
+          "text": "Discourage taking toys or items apart to see how they work"
+        },
+        {
+          "id": "D",
+          "text": "Rely solely on school homework for all learning"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Exploring simple daily wonders together shows children that learning happens everywhere.",
+      "difficulty": "medium",
+      "topic": "parental_engagement",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "parent_05",
+      "audience": "PARENT",
+      "question": "What is computational thinking at the foundational level?",
+      "description": "Thinking skills for the modern age.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorising coding syntax and typing speed"
+        },
+        {
+          "id": "B",
+          "text": "Breaking complex problems into smaller, manageable steps"
+        },
+        {
+          "id": "C",
+          "text": "Spending multiple hours in front of computer screens"
+        },
+        {
+          "id": "D",
+          "text": "Using calculators instead of mental reasoning"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Decomposition, pattern recognition, and step-by-step logic form the core of computational thinking.",
+      "difficulty": "medium",
+      "topic": "computational_thinking",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

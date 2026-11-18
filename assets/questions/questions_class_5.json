@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_5",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_5_01",
+      "audience": "CLASS_5",
+      "question": "Which number completes the pattern: 2, 6, 18, 54, ___?",
+      "description": "Look at the ratio between adjacent numbers.",
+      "options": [
+        {
+          "id": "A",
+          "text": "108"
+        },
+        {
+          "id": "B",
+          "text": "144"
+        },
+        {
+          "id": "C",
+          "text": "162"
+        },
+        {
+          "id": "D",
+          "text": "172"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Each term is multiplied by 3: 54 × 3 = 162.",
+      "difficulty": "medium",
+      "topic": "geometric_patterns",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_02",
+      "audience": "CLASS_5",
+      "question": "What is the boiling point of pure water at standard sea level atmospheric pressure?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "50 °C"
+        },
+        {
+          "id": "B",
+          "text": "80 °C"
+        },
+        {
+          "id": "C",
+          "text": "100 °C"
+        },
+        {
+          "id": "D",
+          "text": "120 °C"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Pure water boils at 100 °C (212 °F) at sea level pressure.",
+      "difficulty": "medium",
+      "topic": "physical_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_03",
+      "audience": "CLASS_5",
+      "question": "If a rectangle has length 8 cm and width 5 cm, what is its area?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "26 cm²"
+        },
+        {
+          "id": "B",
+          "text": "40 cm²"
+        },
+        {
+          "id": "C",
+          "text": "48 cm²"
+        },
+        {
+          "id": "D",
+          "text": "52 cm²"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Area of rectangle = Length × Width = 8 × 5 = 40 cm².",
+      "difficulty": "medium",
+      "topic": "area_calculation",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_04",
+      "audience": "CLASS_5",
+      "question": "Which gas is most abundant in Earth's atmosphere?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Oxygen"
+        },
+        {
+          "id": "B",
+          "text": "Nitrogen"
+        },
+        {
+          "id": "C",
+          "text": "Carbon dioxide"
+        },
+        {
+          "id": "D",
+          "text": "Argon"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Nitrogen makes up approximately 78% of Earth's atmosphere.",
+      "difficulty": "medium",
+      "topic": "earth_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_5_05",
+      "audience": "CLASS_5",
+      "question": "A robot turns 90° clockwise, then 180° clockwise. How many degrees total did it turn?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "210°"
+        },
+        {
+          "id": "B",
+          "text": "240°"
+        },
+        {
+          "id": "C",
+          "text": "270°"
+        },
+        {
+          "id": "D",
+          "text": "360°"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "90° + 180° = 270° clockwise rotation.",
+      "difficulty": "medium",
+      "topic": "angles_and_robotics",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

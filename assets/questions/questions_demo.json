@@ -1,0 +1,156 @@
+{
+  "audience": "DEMO",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "demo_01",
+      "audience": "DEMO",
+      "question": "What is the philosophy of Unicorn Learning Lab in Education 4.0?",
+      "description": "Core learning philosophy.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorise and repeat"
+        },
+        {
+          "id": "B",
+          "text": "Think. Explore. Discover."
+        },
+        {
+          "id": "C",
+          "text": "Complete homework worksheets"
+        },
+        {
+          "id": "D",
+          "text": "Follow rigid instructions"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Our philosophy \"Think. Explore. Discover.\" encourages children to question, experiment, and learn joyfully.",
+      "difficulty": "medium",
+      "topic": "demo_philosophy",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_02",
+      "audience": "DEMO",
+      "question": "What is 5 + 7 in mental arithmetic?",
+      "description": "Quick math puzzle.",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "11"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "13"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "5 + 7 = 12.",
+      "difficulty": "medium",
+      "topic": "demo_math",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_03",
+      "audience": "DEMO",
+      "question": "Which of the following is an example of an input device in computing?",
+      "description": "Foundations of digital technology.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Computer Monitor"
+        },
+        {
+          "id": "B",
+          "text": "Audio Speaker"
+        },
+        {
+          "id": "C",
+          "text": "Keyboard / Mouse"
+        },
+        {
+          "id": "D",
+          "text": "Inkjet Printer"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Keyboards and mice send input signals into the computing system.",
+      "difficulty": "medium",
+      "topic": "demo_technology",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_04",
+      "audience": "DEMO",
+      "question": "Which natural satellite orbits planet Earth?",
+      "description": "Space and astronomy exploration.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mars"
+        },
+        {
+          "id": "B",
+          "text": "The Moon"
+        },
+        {
+          "id": "C",
+          "text": "Jupiter"
+        },
+        {
+          "id": "D",
+          "text": "Venus"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "The Moon is Earth's natural satellite.",
+      "difficulty": "medium",
+      "topic": "demo_science",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "demo_05",
+      "audience": "DEMO",
+      "question": "In Education 4.0, what is the best way to handle a design mistake during a project?",
+      "description": "Growth mindset and resilience.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stop working immediately"
+        },
+        {
+          "id": "B",
+          "text": "Analyse what happened, adjust the design, and test again"
+        },
+        {
+          "id": "C",
+          "text": "Hide the mistake from others"
+        },
+        {
+          "id": "D",
+          "text": "Switch to a trivial task"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Iterative testing and learning from errors is the heart of scientific inquiry and engineering.",
+      "difficulty": "medium",
+      "topic": "demo_growth_mindset",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

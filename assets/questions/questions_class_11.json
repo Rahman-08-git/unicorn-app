@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_11",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_11_01",
+      "audience": "CLASS_11",
+      "question": "Two vectors of magnitude 3 N and 4 N act at a right angle (90°) to each other. What is their resultant magnitude?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "5 N"
+        },
+        {
+          "id": "B",
+          "text": "7 N"
+        },
+        {
+          "id": "C",
+          "text": "1 N"
+        },
+        {
+          "id": "D",
+          "text": "12 N"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Resultant = √(3² + 4²) = √(9 + 16) = √25 = 5 N.",
+      "difficulty": "medium",
+      "topic": "vector_kinematics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_02",
+      "audience": "CLASS_11",
+      "question": "According to the First Law of Thermodynamics, ΔU = Q - W. What does ΔU represent?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Total entropy change"
+        },
+        {
+          "id": "B",
+          "text": "Change in internal energy of the system"
+        },
+        {
+          "id": "C",
+          "text": "Universal gas constant"
+        },
+        {
+          "id": "D",
+          "text": "Heat released to surroundings"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "ΔU represents the internal energy change resulting from heat added minus work performed.",
+      "difficulty": "medium",
+      "topic": "thermodynamics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_03",
+      "audience": "CLASS_11",
+      "question": "What is the derivative of f(x) = x³ - 4x + 7 with respect to x?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "3x² - 4"
+        },
+        {
+          "id": "B",
+          "text": "3x² + 7"
+        },
+        {
+          "id": "C",
+          "text": "x² - 4"
+        },
+        {
+          "id": "D",
+          "text": "3x³ - 4"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "d/dx (x³) = 3x², d/dx (-4x) = -4, and d/dx (7) = 0. Result: 3x² - 4.",
+      "difficulty": "medium",
+      "topic": "calculus_derivatives",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_04",
+      "audience": "CLASS_11",
+      "question": "Which quantum number primarily determines the energy and size of an atomic orbital?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Principal quantum number (n)"
+        },
+        {
+          "id": "B",
+          "text": "Azimuthal quantum number (l)"
+        },
+        {
+          "id": "C",
+          "text": "Magnetic quantum number (m)"
+        },
+        {
+          "id": "D",
+          "text": "Spin quantum number (s)"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "The principal quantum number n defines the principal electron shell and overall energy scale.",
+      "difficulty": "medium",
+      "topic": "quantum_chemistry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_11_05",
+      "audience": "CLASS_11",
+      "question": "In Python programming, which data structure is ordered and immutable?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "List"
+        },
+        {
+          "id": "B",
+          "text": "Tuple"
+        },
+        {
+          "id": "C",
+          "text": "Set"
+        },
+        {
+          "id": "D",
+          "text": "Dictionary"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Tuples maintain insertion order and cannot be mutated after initial creation.",
+      "difficulty": "medium",
+      "topic": "computer_science_fundamentals",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

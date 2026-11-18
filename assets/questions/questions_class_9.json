@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_9",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_9_01",
+      "audience": "CLASS_9",
+      "question": "Newton’s First Law of Motion is also widely known as the Law of:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Inertia"
+        },
+        {
+          "id": "B",
+          "text": "Acceleration"
+        },
+        {
+          "id": "C",
+          "text": "Action and Reaction"
+        },
+        {
+          "id": "D",
+          "text": "Gravitation"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Newton’s first law states an object remains in its state of rest or uniform motion unless acted upon by a net external force.",
+      "difficulty": "medium",
+      "topic": "newtonian_mechanics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_02",
+      "audience": "CLASS_9",
+      "question": "What is the SI unit of work and energy?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Watt"
+        },
+        {
+          "id": "B",
+          "text": "Joule"
+        },
+        {
+          "id": "C",
+          "text": "Newton"
+        },
+        {
+          "id": "D",
+          "text": "Pascal"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Work and energy are measured in Joules (1 Joule = 1 Newton-metre).",
+      "difficulty": "medium",
+      "topic": "units_and_dimensions",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_03",
+      "audience": "CLASS_9",
+      "question": "What are the roots of the quadratic equation x² - 5x + 6 = 0?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "x = 1 and x = 6"
+        },
+        {
+          "id": "B",
+          "text": "x = 2 and x = 3"
+        },
+        {
+          "id": "C",
+          "text": "x = -2 and x = -3"
+        },
+        {
+          "id": "D",
+          "text": "x = 2 and x = -3"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "(x - 2)(x - 3) = 0, so x = 2 and x = 3.",
+      "difficulty": "medium",
+      "topic": "algebra_quadratics",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_04",
+      "audience": "CLASS_9",
+      "question": "The atomic number of an element is determined by the number of:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Neutrons in its nucleus"
+        },
+        {
+          "id": "B",
+          "text": "Protons in its nucleus"
+        },
+        {
+          "id": "C",
+          "text": "Electrons in its outer shell only"
+        },
+        {
+          "id": "D",
+          "text": "Protons plus neutrons"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Atomic number (Z) uniquely identifies an element by the count of protons in its nucleus.",
+      "difficulty": "medium",
+      "topic": "atomic_structure",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_9_05",
+      "audience": "CLASS_9",
+      "question": "In coordinate geometry, in which quadrant does the point (-4, 5) lie?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Quadrant I"
+        },
+        {
+          "id": "B",
+          "text": "Quadrant II"
+        },
+        {
+          "id": "C",
+          "text": "Quadrant III"
+        },
+        {
+          "id": "D",
+          "text": "Quadrant IV"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Quadrant II has negative x and positive y coordinates.",
+      "difficulty": "medium",
+      "topic": "coordinate_geometry",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

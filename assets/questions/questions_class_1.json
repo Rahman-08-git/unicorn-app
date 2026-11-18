@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_1",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_1_01",
+      "audience": "CLASS_1",
+      "question": "Look at the pattern: 2, 4, 6, 8, ___. What comes next?",
+      "description": "Count by twos!",
+      "options": [
+        {
+          "id": "A",
+          "text": "9"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "11"
+        },
+        {
+          "id": "D",
+          "text": "12"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "We are adding 2 each time: 8 + 2 = 10.",
+      "difficulty": "medium",
+      "topic": "numbers",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_02",
+      "audience": "CLASS_1",
+      "question": "Which shape has 3 sides and 3 corners?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Square"
+        },
+        {
+          "id": "B",
+          "text": "Circle"
+        },
+        {
+          "id": "C",
+          "text": "Triangle"
+        },
+        {
+          "id": "D",
+          "text": "Rectangle"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "A triangle always has 3 straight sides and 3 corners.",
+      "difficulty": "medium",
+      "topic": "geometry",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_03",
+      "audience": "CLASS_1",
+      "question": "A unicorn saw 3 birds on a tree. 2 more birds flew in. How many birds are there now?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "7"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "3 + 2 = 5 birds in total!",
+      "difficulty": "medium",
+      "topic": "addition",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_04",
+      "audience": "CLASS_1",
+      "question": "Which animal lives in water and breathes with gills?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Lion"
+        },
+        {
+          "id": "B",
+          "text": "Fish"
+        },
+        {
+          "id": "C",
+          "text": "Eagle"
+        },
+        {
+          "id": "D",
+          "text": "Elephant"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Fish live in water and use their gills to breathe.",
+      "difficulty": "medium",
+      "topic": "nature",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_1_05",
+      "audience": "CLASS_1",
+      "question": "Which object will float on water?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "A heavy metal spoon"
+        },
+        {
+          "id": "B",
+          "text": "A stone"
+        },
+        {
+          "id": "C",
+          "text": "A dry leaf"
+        },
+        {
+          "id": "D",
+          "text": "An iron key"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Dry leaves are light and have buoyancy, so they float on water.",
+      "difficulty": "medium",
+      "topic": "science_exploration",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}

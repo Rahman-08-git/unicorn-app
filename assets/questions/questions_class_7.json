@@ -1,0 +1,156 @@
+{
+  "audience": "CLASS_7",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "class_7_01",
+      "audience": "CLASS_7",
+      "question": "What is the value of x in the equation: 3x - 7 = 14?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "8"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "3x = 14 + 7 = 21 -> x = 21 / 3 = 7.",
+      "difficulty": "medium",
+      "topic": "simple_algebra",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_02",
+      "audience": "CLASS_7",
+      "question": "Lemon juice tastes sour and turns blue litmus red. This indicates it is:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Acidic"
+        },
+        {
+          "id": "B",
+          "text": "Basic / Alkaline"
+        },
+        {
+          "id": "C",
+          "text": "Neutral"
+        },
+        {
+          "id": "D",
+          "text": "Metallic"
+        }
+      ],
+      "correctAnswerId": "A",
+      "explanation": "Acids have a sour taste and turn blue litmus paper red (citric acid in lemons).",
+      "difficulty": "medium",
+      "topic": "acids_and_bases",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_03",
+      "audience": "CLASS_7",
+      "question": "A cyclist rides 36 km/h. How many metres does the cyclist travel in 1 second?",
+      "description": "Convert km/h to m/s.",
+      "options": [
+        {
+          "id": "A",
+          "text": "5 m"
+        },
+        {
+          "id": "B",
+          "text": "10 m"
+        },
+        {
+          "id": "C",
+          "text": "15 m"
+        },
+        {
+          "id": "D",
+          "text": "20 m"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Multiply by 5/18: 36 × (5/18) = 10 m/s.",
+      "difficulty": "medium",
+      "topic": "unit_conversion",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_04",
+      "audience": "CLASS_7",
+      "question": "Heat transfer through vacuum (such as sunlight reaching Earth) occurs via:",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Conduction"
+        },
+        {
+          "id": "B",
+          "text": "Convection"
+        },
+        {
+          "id": "C",
+          "text": "Radiation"
+        },
+        {
+          "id": "D",
+          "text": "Sublimation"
+        }
+      ],
+      "correctAnswerId": "C",
+      "explanation": "Radiation transmits thermal energy via electromagnetic waves without requiring a material medium.",
+      "difficulty": "medium",
+      "topic": "heat_transfer",
+      "active": true,
+      "version": "1.0"
+    },
+    {
+      "id": "class_7_05",
+      "audience": "CLASS_7",
+      "question": "What is the sum of any two supplementary angles?",
+      "description": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "90°"
+        },
+        {
+          "id": "B",
+          "text": "180°"
+        },
+        {
+          "id": "C",
+          "text": "270°"
+        },
+        {
+          "id": "D",
+          "text": "360°"
+        }
+      ],
+      "correctAnswerId": "B",
+      "explanation": "Supplementary angles always sum to 180 degrees.",
+      "difficulty": "medium",
+      "topic": "geometry_lines",
+      "active": true,
+      "version": "1.0"
+    }
+  ]
+}
