@@ -86,6 +86,31 @@ flutter/                    Local Flutter SDK used by flutter_run.ps1 / flutter_
 
 **Run commands:** see "Run commands" in the mascot redesign entry below (`flutter_run.ps1 analyze | test | build web`; the `web-preview` launch config serves `build/web`).
 
+## 2026-11-22: Uni's look enhanced (plush / glossy style)
+
+### Goal
+Bring Uni closer to the polished 3D-plush reference art (soft white fur, layered blue/red/purple mane and tail, big glossy blue eyes, blue spiral horn, navy hooves, sash + badge) **without changing any behaviour**: every state, the roaming, the gallop in/out and the tap reaction work exactly as before.
+
+### Decisions
+- **Rive was looked at, not used.** The Rive CLI (v1.10.0, `~/.rive/bin/rive.exe`) is installed. Getting a `.riv` file on disk needs `rive login` (`--publish`), free-plan files carry the Rive splash watermark, and every pose would have to be rebuilt as a Rive state machine. So the existing Flutter vector rig was redrawn instead.
+- **Only the drawing changed** (`UnicornArt` in `lib/features/mascot/unicorn_rig.dart`). `computeUnicornPose`, `UnicornPose`, `MascotState` and `unicorn_mascot.dart` are untouched.
+
+### What changed
+- Softer indigo outline (`outline`, 2.0 px) instead of the heavy ink line; the eyes and mouth keep the dark ink.
+- Plush shading: a radial-gradient body and head, a blurred belly shadow and top light, a chest ruff, fur flicks and fluff above each hoof, gradient legs, and a soft two-layer ground shadow.
+- Hair: every lock (`_tuft`) has a root→tip gradient, an outline in a darker shade of its own colour, and highlight and dark strands. The tail has 6 fuller locks (adds sky blue); the back mane has 2 more locks.
+- Glossy spiral horn with grooves, shine lines and a specular stripe.
+- Bigger eyes: the iris follows the gaze, a lid shadow sits over the eyeball, there are two catch-lights, and the upper lid is bold and even. Still no lashes and no blush, so the face stays neutral.
+- Warmer muzzle with a nose highlight; soft pink inner ears.
+- Glossy navy hooves; a shaded sash; the badge now has an enamel face, a "lettering" dot ring, two stars and a mini unicorn head.
+- New pose sheet: `design/mascot_enhanced_poses.png`.
+
+### Tests
+The full suite (40) passes, and `flutter analyze lib/features/mascot` is clean. The web preview was checked by hand: the welcome screen, and tapping Uni (it jumps excitedly), with no console errors.
+
+### Open items
+- Not checked for frame rate on the Android tablet (the redraw adds a few blur mask filters and per-lock gradients).
+
 ## 2026-11-18 (later): Required parent name, student name screen, Pre-Primary class
 
 ### What changed

@@ -14,6 +14,7 @@
 library;
 
 import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
@@ -496,24 +497,28 @@ class UnicornArt {
   UnicornArt._();
 
   static const ink = Color(0xFF22264F);
+  static const outline = Color(0xFF3A3F7C);
   static const white = Color(0xFFFFFFFF);
-  static const shade = Color(0xFFE2E6F3);
-  static const blue = Color(0xFF2F5BEA);
+  static const shade = Color(0xFFE2E5F4);
+  static const shadeDeep = Color(0xFFC9CDE6);
+  static const blue = Color(0xFF2560F0);
+  static const sky = Color(0xFF3AA2FF);
   static const deepBlue = Color(0xFF1E3FB8);
-  static const red = Color(0xFFE5384D);
-  static const purple = Color(0xFF7246E8);
+  static const red = Color(0xFFEE2F45);
+  static const purple = Color(0xFF7B3FEF);
   static const pink = Color(0xFFFFB8C6);
-  static const earInner = Color(0xFFCBD3EE);
-  static const muzzle = Color(0xFFEEF1F9);
+  static const earInner = Color(0xFFF7C9D6);
+  static const muzzle = Color(0xFFFBF0F3);
+  static const muzzleShade = Color(0xFFF0DCE4);
   static const navy = Color(0xFF1C2766);
-  static const navyHi = Color(0xFF3A4A9E);
+  static const navyHi = Color(0xFF4659B8);
   static const gold = Color(0xFFF6B42A);
   static const brow = Color(0xFF2A3268);
 
   static final Paint _stroke = Paint()
-    ..color = ink
+    ..color = outline
     ..style = PaintingStyle.stroke
-    ..strokeWidth = 2.4
+    ..strokeWidth = 2.0
     ..strokeJoin = StrokeJoin.round
     ..strokeCap = StrokeCap.round;
 
@@ -528,13 +533,20 @@ class UnicornArt {
     ..cubicTo(72, 165, 55, 158, 55, 139)
     ..cubicTo(55, 121, 72, 113, 98, 112)
     ..close();
+  // plush body: lit from the upper left, soft lavender falloff underneath
   static final Paint _torsoFill = Paint()
-    ..shader = const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [white, white, shade],
-      stops: [0, 0.55, 1],
+    ..shader = const RadialGradient(
+      center: Alignment(-0.25, -0.55),
+      radius: 1.05,
+      colors: [white, Color(0xFFF7F8FD), shade],
+      stops: [0, 0.5, 1],
     ).createShader(const Rect.fromLTWH(55, 112, 86, 53));
+  static final Paint _softShadow = Paint()
+    ..color = const Color(0x66AEB4DA)
+    ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
+  static final Paint _softLight = Paint()
+    ..color = const Color(0xCCFFFFFF)
+    ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
   // leg hips (near legs a little lower = closer to the viewer)
   static const _hipBN = Offset(67, 152), _hipBF = Offset(78, 149);
   static const _hipFN = Offset(119, 152), _hipFF = Offset(130, 149);
@@ -542,12 +554,19 @@ class UnicornArt {
   static const _neckPivot = Offset(128, 120);
   static const _headShift = Offset(30, 12);
   static const Rect _headRect = Rect.fromLTWH(64, 26, 84, 72);
+  static const _eyeL = Offset(90, 57.5), _eyeR = Offset(123, 56.5);
   static final Paint _headFill = Paint()
-    ..shader = const RadialGradient(center: Alignment(-0.15, -0.4), radius: 0.95, colors: [white, Color(0xFFE9ECF7)])
-        .createShader(_headRect);
+    ..shader = const RadialGradient(
+      center: Alignment(-0.2, -0.45),
+      radius: 1.0,
+      colors: [white, Color(0xFFF8F9FE), Color(0xFFE3E6F4)],
+      stops: [0, 0.55, 1],
+    ).createShader(_headRect);
   static final Paint _hornFill = Paint()
-    ..shader = const LinearGradient(colors: [Color(0xFF7FB4FF), Color(0xFF1F45C8)])
-        .createShader(const Rect.fromLTWH(100, -8, 20, 40));
+    ..shader = const LinearGradient(
+      colors: [Color(0xFFB4DCFF), Color(0xFF4A8CFF), Color(0xFF1E46C8), Color(0xFF16338F)],
+      stops: [0, 0.35, 0.75, 1],
+    ).createShader(const Rect.fromLTWH(102, -8, 18, 40));
 
   static final TextPainter _qText = _label('?', purple, 30);
   static final TextPainter _exText = _label('!', white, 17);
@@ -575,8 +594,14 @@ class UnicornArt {
   static void _draw(Canvas c, UnicornPose p, bool flipped) {
     // ground shadow
     c.drawOval(
-      Rect.fromCenter(center: const Offset(100, 192), width: 118 * p.shadowK, height: 12 * p.shadowK),
-      _fill(const Color(0x22101C3A)),
+      Rect.fromCenter(center: const Offset(100, 192), width: 128 * p.shadowK, height: 14 * p.shadowK),
+      Paint()
+        ..color = const Color(0x33525C9A)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3.5),
+    );
+    c.drawOval(
+      Rect.fromCenter(center: const Offset(100, 192), width: 96 * p.shadowK, height: 7 * p.shadowK),
+      _fill(const Color(0x22303A78)),
     );
     if (p.dust) _dust(c, p);
 
@@ -607,9 +632,13 @@ class UnicornArt {
 
     // body + sash
     c.drawPath(_torso, _torsoFill);
-    c.drawOval(Rect.fromCenter(center: const Offset(92, 126), width: 44, height: 16), _fill(const Color(0x88FFFFFF)));
     c.save();
     c.clipPath(_torso);
+    // belly shadow + soft top light give the barrel a rounded, plush volume
+    c.drawOval(Rect.fromCenter(center: const Offset(98, 170), width: 104, height: 26), _softShadow);
+    c.drawOval(Rect.fromCenter(center: const Offset(52, 142), width: 16, height: 46), _softShadow);
+    c.drawOval(Rect.fromCenter(center: const Offset(94, 122), width: 58, height: 14), _softLight);
+    _fur(c);
     _sash(c);
     c.restore();
     c.drawPath(_torso, _stroke);
@@ -652,7 +681,23 @@ class UnicornArt {
       ..lineTo(122, 90)
       ..quadraticBezierTo(116, 110, 103, 121)
       ..close();
-    c.drawPath(neck, _fill(white));
+    c.drawPath(
+      neck,
+      Paint()
+        ..shader = const LinearGradient(colors: [Color(0xFFEDEFF8), white, Color(0xFFF2F3FA)], stops: [0, 0.4, 1])
+            .createShader(const Rect.fromLTWH(82, 86, 40, 38)),
+    );
+    // fluffy chest ruff where the neck meets the body
+    final ruff = Path()
+      ..moveTo(104, 121)
+      ..quadraticBezierTo(112, 124, 114, 116)
+      ..quadraticBezierTo(119, 115, 119, 108)
+      ..quadraticBezierTo(122, 104, 120, 98);
+    c.drawPath(ruff, Paint()
+      ..color = const Color(0xFFD9DCEE)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.6
+      ..strokeCap = StrokeCap.round);
     c.drawPath(
       Path()
         ..moveTo(84.5, 120)
@@ -681,7 +726,13 @@ class UnicornArt {
     bool trophy = false,
   }) {
     const l1 = 16.0, l2 = 15.0;
-    final fill = _fill(far ? shade : white);
+    final fill = Paint()
+      ..shader = ui.Gradient.linear(
+        Offset(-w / 2, 0),
+        Offset(w / 2, 0),
+        far ? const [Color(0xFFE6E8F5), shade, shadeDeep] : const [white, Color(0xFFFAFAFE), Color(0xFFDDE0F0)],
+        const [0, 0.45, 1],
+      );
     c.save();
     c.translate(hip.dx, hip.dy);
     c.rotate(-h);
@@ -701,17 +752,40 @@ class UnicornArt {
       bottomLeft: const Radius.circular(3.5),
       bottomRight: const Radius.circular(3.5),
     );
-    c.drawRRect(hf, _fill(far ? const Color(0xFF151D52) : navy));
-    c.drawLine(Offset(-w * 0.32, l2 - 0.5), Offset(w * 0.18, l2 - 0.5), Paint()
-      ..color = navyHi
+    // glossy navy hoof
+    c.drawRRect(
+      hf,
+      Paint()
+        ..shader = ui.Gradient.linear(
+          const Offset(0, l2 - 3),
+          const Offset(0, l2 + 8),
+          far ? const [Color(0xFF2A3480), Color(0xFF121A4C)] : const [Color(0xFF3446A8), navy, Color(0xFF111850)],
+          far ? const [0, 1] : const [0, 0.55, 1],
+        ),
+    );
+    c.drawLine(Offset(-w * 0.3, l2 + 0.2), Offset(w * 0.12, l2 + 0.2), Paint()
+      ..color = far ? const Color(0x664659B8) : const Color(0xCC7F92F0)
       ..strokeWidth = 2
       ..strokeCap = StrokeCap.round);
+    c.drawCircle(Offset(-w * 0.28, l2 + 3.6), 1.1, _fill(const Color(0x99FFFFFF)));
     c.drawRRect(hf, _stroke);
     if (gesture == HoofGesture.sole) {
       // underside of the hoof turned toward the viewer (waving)
       c.drawOval(Rect.fromCenter(center: const Offset(0, l2 + 6.5), width: w * 0.8, height: 4.5), _fill(navyHi));
     }
     c.drawCircle(Offset.zero, w * 0.38, fill); // hide knee seam
+    // a little fluff just above the hoof
+    c.drawPath(
+      Path()
+        ..moveTo(-w * 0.42, l2 - 3.5)
+        ..quadraticBezierTo(-w * 0.2, l2 - 6.5, 0, l2 - 3.5)
+        ..quadraticBezierTo(w * 0.2, l2 - 6.5, w * 0.42, l2 - 3.5),
+      Paint()
+        ..color = far ? const Color(0xFFB9BEDC) : const Color(0xFFD3D7EC)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.3
+        ..strokeCap = StrokeCap.round,
+    );
     if (gesture == HoofGesture.bump || gesture == HoofGesture.point) {
       final tw = (math.sin(p.time * 8) + 1) / 2;
       _sparkle(c, Offset(0, l2 + 15 + tw * 1.5), 4 + tw * 2.5, gold);
@@ -796,9 +870,13 @@ class UnicornArt {
     c.rotate(p.tail);
     Offset wv(int i, double amp, double lag) =>
         Offset(math.sin(p.time * 3.4 + i * 0.9 + lag) * amp, math.cos(p.time * 3.4 + i * 0.9 + lag) * amp * 0.8);
-    _tuft(c, Offset.zero, const Offset(-26, -24) + wv(0, 3, 0), const Offset(-36, 2) + wv(0, 6, 1), 10, blue);
-    _tuft(c, const Offset(0, 4), const Offset(-38, -2) + wv(1, 3, 0), const Offset(-38, 28) + wv(1, 6, 1), 10, purple);
-    _tuft(c, const Offset(0, 6), const Offset(-26, 18) + wv(2, 3, 0), const Offset(-22, 40) + wv(2, 6, 1), 9, red);
+    // big, layered tail (blue / sky / red / purple locks), back to front
+    _tuft(c, const Offset(0, 6), const Offset(-22, 26) + wv(4, 3, 0), const Offset(-18, 50) + wv(4, 6, 1), 10, blue);
+    _tuft(c, const Offset(0, 5), const Offset(-34, 18) + wv(3, 3, 0), const Offset(-38, 46) + wv(3, 6, 1), 11, purple);
+    _tuft(c, const Offset(0, 3), const Offset(-44, 2) + wv(2, 3, 0), const Offset(-50, 32) + wv(2, 6, 1), 12, red);
+    _tuft(c, const Offset(0, 0), const Offset(-42, -14) + wv(1, 3, 0), const Offset(-56, 12) + wv(1, 6, 1), 11, sky);
+    _tuft(c, const Offset(0, -2), const Offset(-28, -30) + wv(0, 3, 0), const Offset(-46, -6) + wv(0, 6, 1), 12, blue);
+    _tuft(c, const Offset(0, 2), const Offset(-30, -6) + wv(5, 3, 0), const Offset(-40, 20) + wv(5, 5, 1), 7, red);
     c.restore();
   }
 
@@ -806,10 +884,12 @@ class UnicornArt {
     final m = p.mane;
     double mw(int i) => math.sin(p.time * 3.0 + i * 1.1) * 2.2;
     _tuft(c, const Offset(140, 40), Offset(156 + mw(4), 54 + m), Offset(150 + mw(5), 80 + m), 9, blue);
+    _tuft(c, const Offset(84, 30), Offset(60 + mw(6), 30 + m), Offset(46 + mw(0), 52 + m), 11, sky);
     _tuft(c, const Offset(80, 34), Offset(56 + mw(0), 42 + m), Offset(50 + mw(1), 70 + m), 13, blue);
-    _tuft(c, const Offset(72, 50), Offset(50 + mw(1), 70 + m), Offset(56 + mw(2), 100 + m), 12, red);
-    _tuft(c, const Offset(74, 70), Offset(56 + mw(2), 92 + m), Offset(66 + mw(3), 118 + m), 10, purple);
-    _tuft(c, const Offset(82, 82), Offset(70 + mw(3), 104 + m), Offset(80 + mw(4), 122 + m), 8, blue);
+    _tuft(c, const Offset(72, 50), Offset(50 + mw(1), 70 + m), Offset(56 + mw(2), 100 + m), 13, red);
+    _tuft(c, const Offset(74, 62), Offset(52 + mw(5), 82 + m), Offset(58 + mw(6), 108 + m), 9, blue);
+    _tuft(c, const Offset(74, 70), Offset(58 + mw(2), 94 + m), Offset(68 + mw(3), 120 + m), 11, purple);
+    _tuft(c, const Offset(82, 82), Offset(72 + mw(3), 104 + m), Offset(82 + mw(4), 124 + m), 8, red);
   }
 
   /// Tapered hair lock from [from] to [to], bulging through [ctrl].
@@ -822,18 +902,62 @@ class UnicornArt {
       ..quadraticBezierTo(ctrl.dx + n.dx * w * 0.7, ctrl.dy + n.dy * w * 0.7, to.dx, to.dy)
       ..quadraticBezierTo(ctrl.dx - n.dx * w * 0.7, ctrl.dy - n.dy * w * 0.7, from.dx - n.dx * w, from.dy - n.dy * w)
       ..close();
-    c.drawPath(path, _fill(color));
-    c.drawPath(path, _stroke);
+    final light = Color.lerp(color, white, 0.42)!;
+    final dark = Color.lerp(color, const Color(0xFF0C1040), 0.32)!;
+    // silky lock: bright at the root, deeper toward the tip
+    c.drawPath(
+      path,
+      Paint()..shader = ui.Gradient.linear(from, to, [light, color, dark], const [0, 0.42, 1]),
+    );
+    c.drawPath(
+      path,
+      Paint()
+        ..color = Color.lerp(color, const Color(0xFF10143E), 0.55)!
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.5
+        ..strokeJoin = StrokeJoin.round,
+    );
+    // strands: a shiny highlight and a darker inner strand for a fluffy texture
+    final mid = Offset((ctrl.dx + to.dx) / 2, (ctrl.dy + to.dy) / 2);
     c.drawPath(
       Path()
-        ..moveTo(from.dx + n.dx * w * 0.35, from.dy + n.dy * w * 0.35)
-        ..quadraticBezierTo(ctrl.dx + n.dx * w * 0.3, ctrl.dy + n.dy * w * 0.3, (ctrl.dx + to.dx) / 2, (ctrl.dy + to.dy) / 2),
+        ..moveTo(from.dx + n.dx * w * 0.4, from.dy + n.dy * w * 0.4)
+        ..quadraticBezierTo(ctrl.dx + n.dx * w * 0.32, ctrl.dy + n.dy * w * 0.32, mid.dx, mid.dy),
       Paint()
-        ..color = const Color(0x59FFFFFF)
+        ..color = const Color(0x80FFFFFF)
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 2
+        ..strokeWidth = 1.8
         ..strokeCap = StrokeCap.round,
     );
+    c.drawPath(
+      Path()
+        ..moveTo(from.dx - n.dx * w * 0.3, from.dy - n.dy * w * 0.3)
+        ..quadraticBezierTo(ctrl.dx - n.dx * w * 0.2, ctrl.dy - n.dy * w * 0.2, (mid.dx + to.dx) / 2, (mid.dy + to.dy) / 2),
+      Paint()
+        ..color = dark.withOpacity(0.55)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.1
+        ..strokeCap = StrokeCap.round,
+    );
+  }
+
+  /// Short soft fur strokes along the lower edge of the barrel.
+  static void _fur(Canvas c) {
+    final fur = Paint()
+      ..color = const Color(0xFFDCDFF0)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.3
+      ..strokeCap = StrokeCap.round;
+    const tufts = [Offset(66, 156), Offset(82, 160), Offset(110, 160), Offset(124, 156)];
+    for (final o in tufts) {
+      c.drawPath(
+        Path()
+          ..moveTo(o.dx - 4, o.dy)
+          ..quadraticBezierTo(o.dx - 1, o.dy - 3, o.dx + 1, o.dy - 1)
+          ..quadraticBezierTo(o.dx + 3, o.dy - 4, o.dx + 5, o.dy - 1),
+        fur,
+      );
+    }
   }
 
   // ── sash + badge ─────────────────────────────────────────────────────
@@ -846,7 +970,15 @@ class UnicornArt {
       ..lineTo(100, 170)
       ..lineTo(86, 170)
       ..close();
-    c.drawPath(band, _fill(const Color(0xFFF7F8FF)));
+    c.drawPath(
+      band,
+      Paint()
+        ..shader = const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [white, Color(0xFFF2F4FF), Color(0xFFDDE1F3)],
+        ).createShader(const Rect.fromLTWH(74, 106, 26, 64)),
+    );
     final edge = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.6;
@@ -859,20 +991,64 @@ class UnicornArt {
 
   static void _badge(Canvas c) {
     const ctr = Offset(87, 138);
-    c.drawCircle(ctr, 11.5, _fill(white));
-    c.drawCircle(ctr, 11.5, Paint()
+    // soft drop shadow, enamel face, blue rim
+    c.drawCircle(ctr + const Offset(1, 1.6), 13, _fill(const Color(0x33303A78)));
+    c.drawCircle(
+      ctr,
+      13,
+      Paint()
+        ..shader = const RadialGradient(center: Alignment(-0.3, -0.4), colors: [white, Color(0xFFE6EAF8)])
+            .createShader(Rect.fromCircle(center: ctr, radius: 13)),
+    );
+    c.drawCircle(ctr, 11.6, Paint()
       ..color = blue
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 3.2);
-    c.drawArc(Rect.fromCircle(center: ctr, radius: 7.4), 0.3, 2.5, false, Paint()
-      ..color = red
-      ..style = PaintingStyle.stroke
       ..strokeWidth = 2.2);
-    _starPath(c, ctr + const Offset(0, -1), 4.8, _fill(gold));
-    c.drawCircle(ctr, 13, Paint()
-      ..color = ink
+    // ring of "lettering" dots between the rims
+    final dot = _fill(deepBlue);
+    for (int i = 0; i < 18; i++) {
+      final a = -math.pi * 0.95 + i * (math.pi * 1.9 / 17);
+      if (a > 0.35 && a < 2.8) continue; // gap at the bottom for the stars
+      c.drawCircle(ctr + Offset(math.cos(a), math.sin(a)) * 9.2, 0.75, dot);
+    }
+    _starPath(c, ctr + const Offset(-6.2, 6.0), 1.8, _fill(gold));
+    _starPath(c, ctr + const Offset(6.2, 6.0), 1.8, _fill(gold));
+    // tiny unicorn head in the middle (blue mane, red forelock, gold horn)
+    final face = Path()..addOval(Rect.fromCenter(center: ctr + const Offset(0.8, 0.8), width: 7.2, height: 6.2));
+    c.drawPath(face, _fill(white));
+    c.drawPath(face, Paint()
+      ..color = deepBlue
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.4);
+      ..strokeWidth = 0.8);
+    c.drawPath(
+      Path()
+        ..moveTo(ctr.dx - 2.6, ctr.dy - 2.4)
+        ..quadraticBezierTo(ctr.dx - 5.4, ctr.dy, ctr.dx - 3.6, ctr.dy + 4.2)
+        ..lineTo(ctr.dx - 1.6, ctr.dy + 1)
+        ..close(),
+      _fill(blue),
+    );
+    c.drawPath(
+      Path()
+        ..moveTo(ctr.dx - 2.2, ctr.dy - 2.6)
+        ..quadraticBezierTo(ctr.dx + 0.4, ctr.dy - 4.2, ctr.dx + 1.8, ctr.dy - 1.6)
+        ..lineTo(ctr.dx - 0.6, ctr.dy - 1.2)
+        ..close(),
+      _fill(red),
+    );
+    c.drawPath(
+      Path()
+        ..moveTo(ctr.dx - 0.4, ctr.dy - 2.8)
+        ..lineTo(ctr.dx + 0.8, ctr.dy - 6.6)
+        ..lineTo(ctr.dx + 1.4, ctr.dy - 2.4)
+        ..close(),
+      _fill(gold),
+    );
+    c.drawCircle(ctr + const Offset(1.6, 0.4), 0.7, _fill(ink));
+    c.drawCircle(ctr, 13, Paint()
+      ..color = outline
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.3);
   }
 
   // ── head ─────────────────────────────────────────────────────────────
@@ -889,22 +1065,46 @@ class UnicornArt {
     _tuft(c, const Offset(124, 32), const Offset(138, 22), const Offset(146, 22) + cm, 9, blue);
 
     // horn
+    // glossy spiral horn
     final horn = Path()
-      ..moveTo(103, 32)
-      ..lineTo(111, -6)
-      ..lineTo(119, 31)
+      ..moveTo(102.5, 32)
+      ..quadraticBezierTo(105, 12, 110.6, -6.5)
+      ..quadraticBezierTo(111.4, -7, 111.8, -6)
+      ..quadraticBezierTo(117, 12, 119.5, 31)
+      ..quadraticBezierTo(111, 34.5, 102.5, 32)
       ..close();
     c.drawPath(horn, _hornFill);
-    final stripe = Paint()
-      ..color = const Color(0x99FFFFFF)
-      ..strokeWidth = 2
+    c.save();
+    c.clipPath(horn);
+    final groove = Paint()
+      ..color = const Color(0xFF15309A)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.7
       ..strokeCap = StrokeCap.round;
-    for (final k in [0.22, 0.46, 0.7]) {
-      final a = Offset.lerp(const Offset(103, 32), const Offset(111, -6), k)!;
-      final b = Offset.lerp(const Offset(119, 31), const Offset(111, -6), k - 0.1)!;
-      c.drawLine(a, b, stripe);
+    final shine = Paint()
+      ..color = const Color(0xB3FFFFFF)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.3
+      ..strokeCap = StrokeCap.round;
+    for (final k in [0.12, 0.32, 0.52, 0.72]) {
+      final y = _mix(31, -5, k);
+      final hw = _mix(9, 1.5, k) + 1;
+      final ring = Path()
+        ..moveTo(111 - hw, y - 3.2)
+        ..quadraticBezierTo(111, y + 3.4, 111 + hw, y - 0.4);
+      c.drawPath(ring, groove);
+      c.drawPath(ring.shift(const Offset(0, -1.8)), shine);
     }
-    c.drawPath(horn, _stroke);
+    c.drawLine(const Offset(106.2, 24), const Offset(110, 1), Paint()
+      ..color = const Color(0x99FFFFFF)
+      ..strokeWidth = 2.2
+      ..strokeCap = StrokeCap.round);
+    c.restore();
+    c.drawPath(horn, Paint()
+      ..color = const Color(0xFF15287A)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8
+      ..strokeJoin = StrokeJoin.round);
     if (p.hornSparkle) {
       final tw = (math.sin(p.time * 9) + 1) / 2;
       _sparkle(c, const Offset(124, -6), 3 + tw * 4, white);
@@ -914,20 +1114,32 @@ class UnicornArt {
     // head + muzzle
     final head = Path()..addOval(_headRect);
     c.drawPath(head, _headFill);
+    c.save();
+    c.clipPath(head);
+    c.drawOval(Rect.fromCenter(center: const Offset(70, 74), width: 22, height: 44), _softShadow);
+    c.drawOval(Rect.fromCenter(center: const Offset(98, 42), width: 40, height: 16), _softLight);
+    c.restore();
     c.drawPath(head, _stroke);
-    final mz = Path()..addOval(Rect.fromCenter(center: const Offset(113, 86), width: 52, height: 29));
-    c.drawPath(mz, _fill(muzzle));
+    const mzRect = Rect.fromLTWH(87, 71.5, 52, 29);
+    final mz = Path()..addOval(mzRect);
+    c.drawPath(
+      mz,
+      Paint()
+        ..shader = const RadialGradient(center: Alignment(-0.2, -0.5), radius: 0.95, colors: [white, muzzle, muzzleShade], stops: [0, 0.45, 1])
+            .createShader(mzRect),
+    );
     c.drawPath(mz, _stroke);
 
-    // neutral face: no blush, no lashes, calm medium-sized eyes
-    _eye(c, p, const Offset(90, 59), 9, 11, true);
-    _eye(c, p, const Offset(123, 58), 10, 12, false);
+    // neutral face: no blush, no lashes; big, glossy, friendly eyes
+    _eye(c, p, _eyeL, 10.5, 12.5, true);
+    _eye(c, p, _eyeR, 11.5, 13.5, false);
     if (p.glasses) _glasses(c);
 
     // nostrils + mouth
-    final nos = _fill(const Color(0xFF8D96B8));
+    final nos = _fill(const Color(0xFFC59AAD));
     c.drawOval(Rect.fromCenter(center: const Offset(104, 81), width: 5.5, height: 4), nos);
     c.drawOval(Rect.fromCenter(center: const Offset(122, 80), width: 5.5, height: 4), nos);
+    c.drawOval(Rect.fromCenter(center: const Offset(108, 77), width: 12, height: 4), _fill(const Color(0x99FFFFFF)));
     _mouth(c, p.mouth);
 
     // spiky forelock (blue / red / purple) over the horn base
@@ -939,8 +1151,8 @@ class UnicornArt {
     _tuft(c, const Offset(122, 27), const Offset(128, 36), const Offset(126, 46) + fb, 8, red);
     _tuft(c, const Offset(126, 28), const Offset(142, 30), const Offset(150, 44) + fb, 10, blue);
 
-    _brow(c, p, const Offset(90, 58), true);
-    _brow(c, p, const Offset(123, 57), false);
+    _brow(c, p, _eyeL - const Offset(0, 1.5), true);
+    _brow(c, p, _eyeR - const Offset(0, 1.5), false);
 
     if (p.tear >= 0) {
       final tp = p.tear;
@@ -958,9 +1170,19 @@ class UnicornArt {
     c.save();
     c.translate(base.dx, base.dy);
     c.rotate(angle);
-    c.drawPath(_leaf(12, 28), _fill(white));
+    c.drawPath(
+      _leaf(12, 28),
+      Paint()
+        ..shader = const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [white, Color(0xFFE8EAF6)])
+            .createShader(const Rect.fromLTWH(-12, -28, 24, 34)),
+    );
     c.drawPath(_leaf(12, 28), _stroke);
-    c.drawPath(_leaf(6, 19), _fill(earInner));
+    c.drawPath(
+      _leaf(6.5, 20),
+      Paint()
+        ..shader = const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFBE0E8), earInner])
+            .createShader(const Rect.fromLTWH(-6, -20, 12, 24)),
+    );
     c.restore();
   }
 
@@ -1013,27 +1235,51 @@ class UnicornArt {
         ..lineTo(ctr.dx - w - 2, ctr.dy + ry + 2)
         ..close());
     }
-    c.drawOval(rect, _fill(ink));
-    final iris = rect.deflate(2.2);
+    c.drawOval(rect, _fill(const Color(0xFF141A4A)));
+    final pc = ctr + Offset(p.look.dx * w * 0.26, p.look.dy * h * 0.26);
+    final iris = Rect.fromCenter(center: pc, width: w * 1.7, height: h * 1.74);
+    c.save();
+    c.clipPath(Path()..addOval(rect.deflate(1.2)));
     c.drawOval(
       iris,
       Paint()
-        ..shader = const RadialGradient(center: Alignment(0, 0.4), radius: 0.9, colors: [Color(0xFF4F8FE0), Color(0xFF23408F)])
-            .createShader(iris),
+        ..shader = const RadialGradient(
+          center: Alignment(0, 0.45),
+          radius: 0.85,
+          colors: [Color(0xFF9AD8FF), Color(0xFF3C8BF2), Color(0xFF1C3FA6)],
+          stops: [0, 0.5, 1],
+        ).createShader(iris),
     );
-    final pr = w * (wide ? 0.32 : 0.5);
-    final pc = ctr + Offset(p.look.dx * w * 0.28, p.look.dy * h * 0.28);
-    c.drawOval(Rect.fromCenter(center: pc, width: pr * 2, height: pr * 2.1), _fill(const Color(0xFF0B1030)));
-    // one simple catch-light keeps the eyes alive without looking glossy/doll-like
-    c.drawCircle(pc + Offset(-w * 0.3, -h * 0.32), w * 0.24, _fill(white));
+    final pr = w * (wide ? 0.3 : 0.46);
+    c.drawOval(Rect.fromCenter(center: pc, width: pr * 2, height: pr * 2.15), _fill(const Color(0xFF0A0E2C)));
+    // shadow of the upper lid on the eyeball
+    c.drawOval(
+      Rect.fromCenter(center: ctr - Offset(0, h * 0.95), width: w * 2.4, height: h * 0.9),
+      Paint()
+        ..color = const Color(0x66141A4A)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.5),
+    );
+    c.restore();
+    // glossy catch-lights: a big one top-left, a small one bottom-right
+    c.drawOval(Rect.fromCenter(center: pc + Offset(-w * 0.34, -h * 0.36), width: w * 0.56, height: w * 0.62), _fill(white));
+    c.drawCircle(pc + Offset(w * 0.34, h * 0.36), w * 0.13, _fill(const Color(0xE6FFFFFF)));
     c.restore();
     if (sad) {
-      c.drawLine(lidA! + const Offset(2, 0), lidB! - const Offset(2, 0), _stroke);
+      c.drawLine(lidA! + const Offset(2, 0), lidB! - const Offset(2, 0), Paint()
+        ..color = ink
+        ..strokeWidth = 2.6
+        ..strokeCap = StrokeCap.round);
     } else {
       c.drawOval(rect, Paint()
         ..color = ink
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 2.2);
+        ..strokeWidth = 1.6);
+      // bold, even upper lid (no lashes) frames the eye
+      c.drawArc(rect.inflate(0.4), math.pi * 1.06, math.pi * 0.88, false, Paint()
+        ..color = ink
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3.0
+        ..strokeCap = StrokeCap.round);
     }
   }
 
@@ -1043,7 +1289,7 @@ class UnicornArt {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.8;
     final lens = _fill(const Color(0x22FFFFFF));
-    const l = Offset(90, 58), r = Offset(123, 57);
+    const l = _eyeL, r = _eyeR;
     c.drawCircle(l, 15.5, lens);
     c.drawCircle(r, 16.5, lens);
     c.drawCircle(l, 15.5, rim);
@@ -1064,7 +1310,7 @@ class UnicornArt {
   }
 
   static void _brow(Canvas c, UnicornPose p, Offset eye, bool left) {
-    final by = eye.dy - 17 - p.browRaise * 4;
+    final by = eye.dy - 18.5 - p.browRaise * 4;
     final inner = left ? 1.0 : -1.0;
     // neutral, level brows by default; browSad lifts the inner ends
     final tilt = p.browSad * 4;
