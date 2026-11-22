@@ -2,7 +2,7 @@
 
 ## About the codebase
 
-**Unicorn Learning Lab – Education 4.0** is a Flutter kiosk app for campaign events. It runs on tablets (Android, landscape preferred, fullscreen), and the web build is used for previews. A visitor picks who they are (parent, guardian or student), answers 5 timed quiz questions for their group, sees their score, and wins a physical reward (premium gift, a score 3–4 gift, or sticker), always revealed with a spin wheel. Then the app resets itself for the next visitor. Everything works offline: data lives in a local SQLite database on the tablet, and operators export it as CSV.
+**Unicorn Learning Lab – Education 4.0** is a Flutter kiosk app for campaign events. It runs on tablets (Android, landscape preferred, fullscreen), and the web build is used for previews. A visitor picks who they are (parent, guardian or student), answers 5 timed quiz questions for their group, sees their score, and wins a physical gift chosen by the operator's score → gift table (default: 0–1 Unicorn Explorer, 2–3 Unicorn Achiever, 4–5 Unicorn Champion), always revealed with a spin wheel. Then the app resets itself for the next visitor. Everything works offline: data lives in a local SQLite database on the tablet, and operators export it as CSV.
 
 **How it fits together**
 - `main.dart` creates the services with `provider` and shows `AppRouter`.
@@ -82,9 +82,28 @@ flutter/                    Local Flutter SDK used by flutter_run.ps1 / flutter_
   - **Settings & Export**: timer, reset delay, CSV export (readable Quiz Report) to a folder you pick
 - `RobotPuzzleDialog`: an offline mini-game about sequencing and algorithmic thinking.
 
-**Reward tiers** (`ScoringService`): 5/5 → premium gift · 3–4 → spin wheel gift · 0–2 → sticker (all revealed with the spin wheel).
+**Gifts per score** (`RewardService` + the Inventory tab): each score 0–5 maps to one gift (stored in `app_settings`, key `score_gift_map`). Default: 0–1 → UNICORN EXPLORER GIFT · 2–3 → UNICORN ACHIEVER GIFT · 4–5 → UNICORN CHAMPION GIFT. All revealed with the spin wheel.
 
 **Run commands:** see "Run commands" in the mascot redesign entry below (`flutter_run.ps1 analyze | test | build web`; the `web-preview` launch config serves `build/web`).
+
+## 2026-11-22 (later): Score → gift table replaces fixed reward tiers
+
+### What changed
+- **No more fixed tiers.** "Premium gift / Spin wheel gift / Sticker" are gone. Each score 0–5 maps to one gift, and the operator sets it in **Inventory → Gift for each score** (a dropdown per score, saved immediately, plus "Reset to default").
+- **New default gifts:** UNICORN EXPLORER GIFT (0–1, 500 units), UNICORN ACHIEVER GIFT (2–3, 200), UNICORN CHAMPION GIFT (4–5, 50). Constants live in `AppConstants` (`defaultScoreGifts`, `defaultGiftNames`, `defaultGiftStock`).
+- **Gifts & stock** is one flat list. Each card shows which scores win it ("Score 0–1" or "Not given for any score"). The gift editor has "Given for score" chips: picking a score moves it to that gift. A score can only be taken away by picking another gift for it. A gift that is still mapped to a score can't be deleted.
+- **Storage:** the table is JSON in `app_settings` (`score_gift_map`), read with `DatabaseHelper.getScoreGiftMap()` and written with `setScoreGiftMap()`. All gifts now have `reward_type = 'GIFT'`. `getInventoryForType` was removed.
+- **DB v4 migration:** existing gifts keep their name, stock and history but move to type `GIFT` (not mapped to any score; the operator can delete or remap them). The three new gifts are added with the default stock, and the default table is saved. **Check the new gifts' stock on each tablet after upgrading.**
+- **Quiz flow:** `RewardService.assignRewardForAttempt(attemptId, score)` takes the gift from the table. If it's out of stock, the visitor gets the in-stock gift for the nearest lower score, then any in-stock gift, with a message on the reward screen. `ScoringService` no longer maps rewards (`rewardType` was removed from `ScoreResult`).
+- **Screens:** the results screen and reward card show the gift's current name. The card's colour and wording follow the score band (0–1 / 2–3 / 4–5); a 5/5 gets a "PERFECT SCORE" pill. Without a database (web preview) the default gift name for the score is shown.
+- **CSV:** Gift Inventory's "Given For" column lists the scores (e.g. "Score 2, 4-5"). The Quiz Report's "Reward Tier" says "Gift for score n/5"; old records still show their old tier name.
+
+### Tests
+44 pass. New: the default table and names, safe decoding of the stored table, the export's score labels, a custom table deciding the gift won (and shown on the results screen), and the out-of-stock fallback. The renamed-gift journey now covers every score 0–5.
+
+### Open items
+- Not checked by eye: the browser pane was hidden and refused the preview. The web build has no SQLite anyway, so the Inventory tab needs an Android tablet to try.
+- The v4 migration hasn't been run on a real upgraded database yet.
 
 ## 2026-11-22: Uni's look enhanced (plush / glossy style)
 

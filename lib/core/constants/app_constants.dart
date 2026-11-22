@@ -15,7 +15,7 @@ class AppConstants {
 
   // ── Database ──────────────────────────────────────────────────────────
   static const String databaseName = 'unicorn_learning_lab.db';
-  static const int databaseVersion = 3;
+  static const int databaseVersion = 4;
 
   // ── Quiz Settings ─────────────────────────────────────────────────────
   static const int questionsPerAttempt = 5;
@@ -35,12 +35,50 @@ class AppConstants {
   static const String titleScore0To2 = 'CURIOUS EXPLORER';
 
   // ── Reward Types ──────────────────────────────────────────────────────
+  /// Every gift now uses this type. Which gift a visitor wins is decided by the
+  /// operator's score → gift table (see [defaultScoreGifts]), not by the type.
+  static const String rewardGift = 'GIFT';
+
+  /// Legacy tiers (before the score → gift table). Old reward records may still
+  /// carry them; they are only used to label those records.
   static const String rewardPremiumGift = 'PREMIUM_GIFT';
   /// Legacy tier: the scratch card was removed. Old records may still carry it;
   /// it is treated as the score 3–4 tier everywhere.
   static const String rewardScratchCard = 'SCRATCH_CARD';
   static const String rewardSpinWheel = 'SPIN_WHEEL';
   static const String rewardSticker = 'STICKER';
+
+  // ── Default gifts and score → gift table ──────────────────────────────
+  static const String giftExplorer = 'UNICORN_EXPLORER_GIFT';
+  static const String giftAchiever = 'UNICORN_ACHIEVER_GIFT';
+  static const String giftChampion = 'UNICORN_CHAMPION_GIFT';
+
+  static const Map<String, String> defaultGiftNames = {
+    giftExplorer: 'UNICORN EXPLORER GIFT',
+    giftAchiever: 'UNICORN ACHIEVER GIFT',
+    giftChampion: 'UNICORN CHAMPION GIFT',
+  };
+
+  /// Starting stock for the default gifts on a new install / upgrade.
+  static const Map<String, int> defaultGiftStock = {
+    giftExplorer: 500,
+    giftAchiever: 200,
+    giftChampion: 50,
+  };
+
+  /// Default gift for each score (index = score 0–5). Editable in the
+  /// operator dashboard's Inventory tab.
+  static const List<String> defaultScoreGifts = [
+    giftExplorer, // 0
+    giftExplorer, // 1
+    giftAchiever, // 2
+    giftAchiever, // 3
+    giftChampion, // 4
+    giftChampion, // 5
+  ];
+
+  /// app_settings key holding the operator's score → gift table (JSON).
+  static const String settingScoreGiftMap = 'score_gift_map';
 
   // ── Reward Collection Statuses ────────────────────────────────────────
   static const String statusAssigned = 'ASSIGNED';

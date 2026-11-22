@@ -108,7 +108,9 @@ class ExportService {
     return m > 0 ? '$m min $s sec' : '$s sec';
   }
 
-  static String _tierLabel(String rewardType) {
+  /// "Reward Tier" column: the score band for current gifts, or the old tier
+  /// name for rewards recorded before the score → gift table existed.
+  static String _tierLabel(String rewardType, int score) {
     switch (rewardType) {
       case AppConstants.rewardPremiumGift:
         return 'Premium gift (score 5/5)';
@@ -118,8 +120,25 @@ class ExportService {
       case AppConstants.rewardSticker:
         return 'Sticker (score 0-2/5)';
       default:
-        return rewardType;
+        return 'Gift for score $score/${AppConstants.maxScore}';
     }
+  }
+
+  /// Which scores win [giftId], e.g. "Score 0-1" or "Score 2, 4-5".
+  static String scoresLabel(List<String> scoreGiftMap, String giftId) {
+    final scores = [for (var i = 0; i < scoreGiftMap.length; i++) if (scoreGiftMap[i] == giftId) i];
+    if (scores.isEmpty) return 'Not given for any score';
+    final parts = <String>[];
+    var start = scores.first, prev = scores.first;
+    for (final s in [...scores.skip(1), -10]) {
+      if (s == prev + 1) {
+        prev = s;
+        continue;
+      }
+      parts.add(start == prev ? '$start' : '$start-$prev');
+      start = prev = s;
+    }
+    return 'Score ${parts.join(', ')}';
   }
 
   static String _statusLabel(String status) {
@@ -173,6 +192,12 @@ class ExportService {
     final rewards = await _dbHelper.getAllRewards();
     final inventory = await _dbHelper.getAllInventory();
     final answers = await _dbHelper.getAllAnswers();
+    List<String> scoreGiftMap;
+    try {
+      scoreGiftMap = await _dbHelper.getScoreGiftMap();
+    } catch (_) {
+      scoreGiftMap = List<String>.of(AppConstants.defaultScoreGifts);
+    }
 
     final participantsById = {for (final pt in participants) pt.id: pt};
     final giftNames = {for (final i in inventory) i.rewardIdentifier: i.displayName};
@@ -271,7 +296,7 @@ class ExportService {
         wrong,
         timedOut,
         ...qCols,
-        r == null ? '' : _tierLabel(r.rewardType),
+        r == null ? '' : _tierLabel(r.rewardType, a.score),
         r == null ? '' : (giftNames[r.rewardIdentifier] ?? RewardInventory.prettifyIdentifier(r.rewardIdentifier)),
         r == null ? '' : _statusLabel(r.collectionStatus),
         r?.collectedAt == null ? '' : _dateTime.format(r!.collectedAt!),
@@ -316,7 +341,7 @@ class ExportService {
     for (final i in inventory) {
       inventoryRows.add([
         i.displayName,
-        _tierLabel(i.rewardType),
+        scoresLabel(scoreGiftMap, i.rewardIdentifier),
         i.availableStock,
         i.assignedCount,
         i.collectedCount,

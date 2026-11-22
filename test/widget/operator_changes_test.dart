@@ -2,7 +2,8 @@
 //  1. a gift renamed in Inventory is the name shown on the results and reward screens,
 //  2. a question/options edited in the Question Bank editor are what the quiz shows,
 //  3. the CSV export is a readable per-visitor report,
-//  4. every reward tier is revealed with the spin wheel (no scratch card).
+//  4. every score is revealed with the spin wheel (no scratch card),
+//  5. the score → gift table set in Inventory decides which gift is won.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -89,10 +90,13 @@ class FakeDb implements DatabaseHelper {
   }
 
   @override
-  Future<List<RewardInventory>> getInventoryForType(String rewardType) async =>
-      inventory.where((i) => i.rewardType == rewardType).toList();
-  @override
   Future<List<RewardInventory>> getAllInventory() async => inventory;
+
+  List<String> scoreGifts = List<String>.of(AppConstants.defaultScoreGifts);
+  @override
+  Future<List<String>> getScoreGiftMap() async => List<String>.of(scoreGifts);
+  @override
+  Future<void> setScoreGiftMap(List<String> giftIds) async => scoreGifts = List<String>.of(giftIds);
 
   /// Mirrors the Inventory tab's "Edit gift" save.
   void renameGift(String id, String name) {
@@ -124,9 +128,8 @@ class FakeDb implements DatabaseHelper {
 FakeDb seededDb() {
   final db = FakeDb();
   db.inventory.addAll([
-    RewardInventory(rewardType: AppConstants.rewardPremiumGift, rewardIdentifier: 'PREMIUM_DISCOVERY_KIT', displayName: 'Premium Discovery Kit', configuredStock: 5),
-    RewardInventory(rewardType: AppConstants.rewardSpinWheel, rewardIdentifier: 'SPIN_WHEEL_GIFT', displayName: 'Spin Wheel Gift', configuredStock: 5),
-    RewardInventory(rewardType: AppConstants.rewardSticker, rewardIdentifier: 'UNICORN_STICKER_PACK', displayName: 'Unicorn Sticker Pack', configuredStock: 5),
+    for (final e in AppConstants.defaultGiftNames.entries)
+      RewardInventory(rewardType: AppConstants.rewardGift, rewardIdentifier: e.key, displayName: e.value, configuredStock: 5),
   ]);
   return db;
 }
@@ -168,12 +171,14 @@ Future<void> revealReward(WidgetTester tester) async {
 }
 
 void main() {
-  group('Renamed gifts show on every reward screen (spin wheel for all tiers)', () {
+  group('Default gift per score, renamed, shows on every reward screen (spin wheel for all scores)', () {
     for (final c in [
-      (score: 5, id: 'PREMIUM_DISCOVERY_KIT', name: 'Robotics Starter Kit'),
-      (score: 4, id: 'SPIN_WHEEL_GIFT', name: 'Science Puzzle Box'),
-      (score: 3, id: 'SPIN_WHEEL_GIFT', name: 'Science Puzzle Box'),
-      (score: 1, id: 'UNICORN_STICKER_PACK', name: 'Galaxy Sticker Sheet'),
+      (score: 5, id: AppConstants.giftChampion, name: 'Robotics Starter Kit'),
+      (score: 4, id: AppConstants.giftChampion, name: 'Robotics Starter Kit'),
+      (score: 3, id: AppConstants.giftAchiever, name: 'Science Puzzle Box'),
+      (score: 2, id: AppConstants.giftAchiever, name: 'Science Puzzle Box'),
+      (score: 1, id: AppConstants.giftExplorer, name: 'Galaxy Sticker Sheet'),
+      (score: 0, id: AppConstants.giftExplorer, name: 'Galaxy Sticker Sheet'),
     ]) {
       testWidgets('score ${c.score} → "${c.name}"', (tester) async {
         await tester.binding.setSurfaceSize(const Size(1280, 800));
@@ -203,6 +208,55 @@ void main() {
         await tester.pump(const Duration(seconds: 6));
       });
     }
+  });
+
+  testWidgets('Gift changed for a score in the Inventory table is the gift the visitor wins', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(1280, 800));
+    final db = seededDb();
+    db.inventory.add(RewardInventory(
+        rewardType: AppConstants.rewardGift, rewardIdentifier: 'GIFT_ROBOT', displayName: 'Mini Robot Kit', configuredStock: 3));
+    // Operator: score 3 now wins the Champion gift, score 5 the new Mini Robot Kit.
+    await db.setScoreGiftMap([
+      AppConstants.giftExplorer,
+      AppConstants.giftExplorer,
+      AppConstants.giftAchiever,
+      AppConstants.giftChampion,
+      AppConstants.giftChampion,
+      'GIFT_ROBOT',
+    ]);
+    final bank = QuestionBankService(dbHelper: db);
+    final session = SessionService(dbHelper: db, questionBankService: bank, rewardService: RewardService(dbHelper: db));
+    addTearDown(() {
+      session.timerService.stopTimer();
+      session.dispose();
+    });
+
+    await playQuiz(session, 3);
+    expect(session.assignedReward!.rewardIdentifier, AppConstants.giftChampion);
+    expect(session.assignedRewardName, 'UNICORN CHAMPION GIFT');
+    session.resetSessionToWelcome();
+
+    await playQuiz(session, 5);
+    expect(session.assignedReward!.rewardIdentifier, 'GIFT_ROBOT');
+    await tester.pumpWidget(app(session, bank, db));
+    await tester.pump(const Duration(seconds: 3));
+    expect(find.text('Mini Robot Kit'), findsOneWidget, reason: 'results screen shows the gift chosen for 5/5');
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 1));
+  });
+
+  test('A gift that runs out falls back to the gift for the nearest lower score', () async {
+    final db = seededDb();
+    final champ = db.inventory.indexWhere((g) => g.rewardIdentifier == AppConstants.giftChampion);
+    final g = db.inventory[champ];
+    db.inventory[champ] = RewardInventory(
+        id: g.id, rewardType: g.rewardType, rewardIdentifier: g.rewardIdentifier, displayName: g.displayName,
+        configuredStock: 2, assignedCount: 2);
+    final service = RewardService(dbHelper: db);
+    final res = await service.assignRewardForAttempt(attemptId: 'a1', score: 5);
+    expect(res.inventoryExhausted, isTrue);
+    expect(res.reward.rewardIdentifier, AppConstants.giftAchiever);
+    expect(res.fallbackMessage, contains('UNICORN ACHIEVER GIFT'));
   });
 
   testWidgets('Question and options edited in the Question Bank editor appear in the quiz', (tester) async {
@@ -266,7 +320,7 @@ void main() {
   });
 
   test('CSV export is a readable per-visitor report', () async {
-    final db = seededDb()..renameGift('SPIN_WHEEL_GIFT', 'Science Puzzle Box');
+    final db = seededDb()..renameGift(AppConstants.giftChampion, 'Science Puzzle Box');
     final bank = QuestionBankService(dbHelper: db);
     final session = SessionService(dbHelper: db, questionBankService: bank, rewardService: RewardService(dbHelper: db));
     await Future<void>.delayed(Duration.zero);
@@ -329,6 +383,10 @@ void main() {
     expect(report, isNot(contains('PARENT,')));
 
     final summary = files.entries.firstWhere((e) => e.key.startsWith('Summary_')).value;
+    final inv = files.entries.firstWhere((e) => e.key.startsWith('Gift_Inventory_')).value;
+    expect(inv, contains('UNICORN EXPLORER GIFT,Score 0-1'));
+    expect(inv, contains('UNICORN ACHIEVER GIFT,Score 2-3'));
+    expect(inv, contains('Science Puzzle Box,Score 4-5'));
     expect(summary, contains('Total Visitors,3'));
     expect(summary, contains('Quizzes Completed,3'));
     expect(summary, contains('Students - Pre-Primary,1'));

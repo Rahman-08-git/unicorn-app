@@ -16,6 +16,7 @@ import 'package:unicorn_learning_lab/core/constants/app_constants.dart';
 import 'package:unicorn_learning_lab/core/ui/ull_ui.dart';
 import 'package:unicorn_learning_lab/features/mascot/mascot_states.dart';
 import 'package:unicorn_learning_lab/features/mascot/unicorn_mascot.dart';
+import 'package:unicorn_learning_lab/features/results/results_screen.dart';
 import 'package:unicorn_learning_lab/services/session_service.dart';
 
 enum _Phase { chest, spin, revealed }
@@ -29,25 +30,23 @@ class _RewardInfo {
   final String claim;
 }
 
-/// Look and copy for a reward tier. [giftName] is the gift's current name from
-/// the operator's Inventory tab; it replaces the tier's generic title.
-_RewardInfo _infoFor(String type, String? giftName) {
-  final name = (giftName == null || giftName.trim().isEmpty) ? null : giftName.trim();
-  switch (type) {
-    case AppConstants.rewardPremiumGift:
-      final title = name ?? 'Premium Discovery Kit';
-      return _RewardInfo(title, 'A perfect score earns our grand surprise!', Icons.diamond_rounded,
-          const Color(0xFFB45309), 'Show this screen to campaign staff to receive your $title.');
-    case AppConstants.rewardScratchCard: // legacy tier, now part of the spin wheel tier
-    case AppConstants.rewardSpinWheel:
-      final title = name ?? 'Learning Gift';
-      return _RewardInfo(title, 'Your sharp thinking earned a learning gift!', Icons.redeem_rounded,
-          const Color(0xFF2563EB), 'Present this tablet to staff to collect your $title.');
-    default:
-      final title = name ?? 'Explorer Sticker Pack';
-      return _RewardInfo(title, 'Every explorer gets a badge of curiosity!', Icons.star_rounded,
-          const Color(0xFFDB2777), 'Collect your $title from campaign staff!');
+/// Look and copy for the reward. The colour and wording follow the score band
+/// (0–1, 2–3, 4–5); [giftName] is the gift's current name from the operator's
+/// Inventory tab (score → gift table).
+_RewardInfo _infoFor(int score, String? giftName) {
+  final name = (giftName == null || giftName.trim().isEmpty)
+      ? ResultsScreen.rewardLabel(score)
+      : giftName.trim();
+  if (score >= 4) {
+    return _RewardInfo(name, 'Champion thinking earns our grand surprise!', Icons.diamond_rounded,
+        const Color(0xFFB45309), 'Show this screen to campaign staff to receive your $name.');
   }
+  if (score >= 2) {
+    return _RewardInfo(name, 'Your sharp thinking earned a learning gift!', Icons.redeem_rounded,
+        const Color(0xFF2563EB), 'Present this tablet to staff to collect your $name.');
+  }
+  return _RewardInfo(name, 'Every explorer earns a gift of curiosity!', Icons.star_rounded,
+      const Color(0xFFDB2777), 'Collect your $name from campaign staff!');
 }
 
 class RewardRevealScreen extends StatefulWidget {
@@ -72,8 +71,8 @@ class _RewardRevealScreenState extends State<RewardRevealScreen> {
   Widget build(BuildContext context) {
     final session = context.watch<SessionService>();
     final reward = session.assignedReward;
-    final type = reward?.rewardType ?? AppConstants.rewardSticker;
-    final info = _infoFor(type, session.assignedRewardName);
+    final score = session.currentAttempt?.score ?? 0;
+    final info = _infoFor(score, session.assignedRewardName);
 
     final String headline;
     final String mascotMsg;
@@ -101,7 +100,7 @@ class _RewardRevealScreenState extends State<RewardRevealScreen> {
         stage = _SpinWheel(key: const ValueKey('wheel'), seed: reward?.id.hashCode ?? 0, info: info, onDone: _onSpinDone);
         break;
       case _Phase.revealed:
-        stage = _RewardCard(key: const ValueKey('card'), info: info, premium: type == AppConstants.rewardPremiumGift);
+        stage = _RewardCard(key: const ValueKey('card'), info: info, premium: score >= AppConstants.maxScore);
         break;
     }
 
@@ -581,7 +580,7 @@ class _RewardCard extends StatelessWidget {
             ),
             const SizedBox(height: 14),
             if (premium) ...[
-              const UllPill(text: 'GRAND SURPRISE', icon: Icons.emoji_events_rounded, color: Color(0xFFB45309), background: AppColors.softGold),
+              const UllPill(text: 'PERFECT SCORE', icon: Icons.emoji_events_rounded, color: Color(0xFFB45309), background: AppColors.softGold),
               const SizedBox(height: 10),
             ],
             Text(info.title,

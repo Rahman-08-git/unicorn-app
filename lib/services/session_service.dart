@@ -389,11 +389,10 @@ class SessionService extends ChangeNotifier {
     _currentAttempt = updatedAttempt;
 
     // Persist reward BEFORE reveal screen
-    final outcome = _scoringService.evaluateOutcome(finalScore);
     try {
       final rewardResult = await _rewardService.assignRewardForAttempt(
         attemptId: _currentAttempt!.id,
-        requestedRewardType: outcome.rewardType,
+        score: finalScore,
       );
       _assignedReward = rewardResult.reward;
       _rewardFallbackMessage = rewardResult.fallbackMessage;

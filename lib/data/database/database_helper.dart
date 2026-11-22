@@ -5,6 +5,7 @@
 library;
 
 import 'dart:async';
+import 'dart:convert';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -181,7 +182,7 @@ class DatabaseHelper {
       if (!hasDisplayName) {
         await db.execute('ALTER TABLE reward_inventory ADD COLUMN display_name TEXT');
       }
-      for (final entry in defaultGiftNames.entries) {
+      for (final entry in legacyGiftNames.entries) {
         await db.update(
           'reward_inventory',
           {'display_name': entry.value},
@@ -193,6 +194,43 @@ class DatabaseHelper {
     }
     if (oldVersion < 3) {
       await _migrateScratchCardToSpinWheel(db);
+    }
+    if (oldVersion < 4) {
+      await _migrateToScoreGiftTable(db);
+    }
+  }
+
+  /// v4: fixed reward tiers (premium / spin wheel / sticker) are replaced by an
+  /// operator-editable score → gift table. Existing gifts keep their name, stock
+  /// and history, but are no longer tied to a tier. The three new default gifts
+  /// (Explorer 0–1, Achiever 2–3, Champion 4–5) are added and mapped.
+  Future<void> _migrateToScoreGiftTable(DatabaseExecutor db) async {
+    await db.update('reward_inventory', {'reward_type': AppConstants.rewardGift});
+    await _insertDefaultGifts(db);
+    await db.insert(
+      'app_settings',
+      {'key': AppConstants.settingScoreGiftMap, 'value': jsonEncode(AppConstants.defaultScoreGifts)},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<void> _insertDefaultGifts(DatabaseExecutor db) async {
+    final now = DateTime.now().toIso8601String();
+    for (final entry in AppConstants.defaultGiftNames.entries) {
+      await db.insert(
+        'reward_inventory',
+        {
+          'id': 'inv_${entry.key.toLowerCase()}',
+          'reward_type': AppConstants.rewardGift,
+          'reward_identifier': entry.key,
+          'display_name': entry.value,
+          'configured_stock': AppConstants.defaultGiftStock[entry.key] ?? 0,
+          'assigned_count': 0,
+          'collected_count': 0,
+          'last_updated': now,
+        },
+        conflictAlgorithm: ConflictAlgorithm.ignore,
+      );
     }
   }
 
@@ -209,7 +247,8 @@ class DatabaseHelper {
     await db.update('campaign_config', {'reward_mode': 'spin_wheel'});
   }
 
-  static const Map<String, String> defaultGiftNames = {
+  /// Names of the gifts seeded before v4 (used only by the v2 migration).
+  static const Map<String, String> legacyGiftNames = {
     'PREMIUM_DISCOVERY_KIT': 'Premium Discovery Kit',
     'SCRATCH_CARD_STATIONERY': 'Stationery Set',
     'SPIN_WHEEL_GIFT': 'Spin Wheel Gift',
@@ -235,52 +274,13 @@ class DatabaseHelper {
       'updated_at': now,
     });
 
-    // Seed default inventory
-    final defaultInventory = <Map<String, Object?>>[
-      {
-        'id': 'inv_premium_01',
-        'reward_type': AppConstants.rewardPremiumGift,
-        'reward_identifier': 'PREMIUM_DISCOVERY_KIT',
-        'configured_stock': 50,
-        'assigned_count': 0,
-        'collected_count': 0,
-        'last_updated': now,
-      },
-      {
-        'id': 'inv_scratch_01',
-        // The scratch card was removed: this gift is now part of the score 3–4 (spin wheel) tier.
-        'reward_type': AppConstants.rewardSpinWheel,
-        'reward_identifier': 'SCRATCH_CARD_STATIONERY',
-        'configured_stock': 200,
-        'assigned_count': 0,
-        'collected_count': 0,
-        'last_updated': now,
-      },
-      {
-        'id': 'inv_wheel_01',
-        'reward_type': AppConstants.rewardSpinWheel,
-        'reward_identifier': 'SPIN_WHEEL_GIFT',
-        'configured_stock': 200,
-        'assigned_count': 0,
-        'collected_count': 0,
-        'last_updated': now,
-      },
-      {
-        'id': 'inv_sticker_01',
-        'reward_type': AppConstants.rewardSticker,
-        'reward_identifier': 'UNICORN_STICKER_PACK',
-        'configured_stock': 500,
-        'assigned_count': 0,
-        'collected_count': 0,
-        'last_updated': now,
-      },
-    ];
-
-    for (final inv in defaultInventory) {
-      inv['display_name'] = defaultGiftNames[inv['reward_identifier']];
-      await db.insert('reward_inventory', inv,
-          conflictAlgorithm: ConflictAlgorithm.ignore);
-    }
+    // Seed the default gifts and the score → gift table.
+    await _insertDefaultGifts(db);
+    await db.insert(
+      'app_settings',
+      {'key': AppConstants.settingScoreGiftMap, 'value': jsonEncode(AppConstants.defaultScoreGifts)},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   // ═══════════════════════════════════════════════════════════════════════
@@ -468,7 +468,7 @@ class DatabaseHelper {
 
   Future<List<RewardInventory>> getAllInventory() async {
     final db = await database;
-    final results = await db.query('reward_inventory');
+    final results = await db.query('reward_inventory', orderBy: 'rowid ASC');
     return results.map((m) => RewardInventory.fromMap(m)).toList();
   }
 
@@ -478,13 +478,6 @@ class DatabaseHelper {
         where: 'reward_identifier = ?', whereArgs: [rewardIdentifier]);
     if (results.isEmpty) return null;
     return RewardInventory.fromMap(results.first);
-  }
-
-  Future<List<RewardInventory>> getInventoryForType(String rewardType) async {
-    final db = await database;
-    final results = await db.query('reward_inventory',
-        where: 'reward_type = ?', whereArgs: [rewardType], orderBy: 'rowid ASC');
-    return results.map((m) => RewardInventory.fromMap(m)).toList();
   }
 
   /// Add a new gift to the inventory. Returns false if the identifier exists.
@@ -589,6 +582,36 @@ class DatabaseHelper {
     final db = await database;
     await db.insert('app_settings', {'key': key, 'value': value},
         conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  // ═══════════════════════════════════════════════════════════════════════
+  //  Score → gift table (operator-editable in the Inventory tab)
+  // ═══════════════════════════════════════════════════════════════════════
+
+  /// The gift identifier for each score 0–5 (index = score). Missing or broken
+  /// entries fall back to [AppConstants.defaultScoreGifts].
+  Future<List<String>> getScoreGiftMap() async {
+    final raw = await getSetting(AppConstants.settingScoreGiftMap);
+    return decodeScoreGiftMap(raw);
+  }
+
+  Future<void> setScoreGiftMap(List<String> giftIds) async {
+    await setSetting(AppConstants.settingScoreGiftMap, jsonEncode(giftIds));
+  }
+
+  static List<String> decodeScoreGiftMap(String? raw) {
+    final result = List<String>.of(AppConstants.defaultScoreGifts);
+    if (raw == null || raw.isEmpty) return result;
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is List) {
+        for (var i = 0; i < result.length && i < decoded.length; i++) {
+          final v = decoded[i];
+          if (v is String && v.isNotEmpty) result[i] = v;
+        }
+      }
+    } catch (_) {}
+    return result;
   }
 
   // ═══════════════════════════════════════════════════════════════════════

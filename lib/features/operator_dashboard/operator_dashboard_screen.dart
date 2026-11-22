@@ -41,6 +41,7 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
   List<Participant> _participants = [];
   List<Reward> _rewards = [];
   List<RewardInventory> _inventory = [];
+  List<String> _scoreGifts = List<String>.of(AppConstants.defaultScoreGifts);
   CampaignConfig _config = CampaignConfig();
   bool _isLoading = true;
 
@@ -77,6 +78,7 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
     final attempts = await _db.getAllAttempts(); // newest first
     final rewards = await _db.getAllRewards();
     final inventory = await _db.getAllInventory();
+    final scoreGifts = await _db.getScoreGiftMap();
     final config = await _db.getCampaignConfig();
 
     final byParticipant = <String, List<Attempt>>{};
@@ -94,6 +96,7 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
         _rewards = rewards;
         _rewardByAttempt = {for (final r in rewards) r.attemptId: r};
         _inventory = inventory;
+        _scoreGifts = scoreGifts;
         _config = config;
         _isLoading = false;
       });
@@ -744,35 +747,96 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
   }
 
   // 3. Inventory Tab
-  static const _tierOrder = [
-    AppConstants.rewardPremiumGift,
-    AppConstants.rewardSpinWheel,
-    AppConstants.rewardSticker,
-  ];
+  /// Which scores win this gift, e.g. "Score 0–1" (from the score → gift table).
+  String _scoresFor(String giftId) =>
+      ExportService.scoresLabel(_scoreGifts, giftId).replaceAll('-', '–');
 
-  static String tierLabel(String type) {
-    switch (type) {
-      case AppConstants.rewardPremiumGift:
-        return 'Premium gift • score 5/5';
-      case AppConstants.rewardScratchCard: // legacy tier, merged into the 3–4 tier
-      case AppConstants.rewardSpinWheel:
-        return 'Spin wheel gift • score 3–4/5';
-      case AppConstants.rewardSticker:
-        return 'Sticker • score 0–2/5 (and backup when others run out)';
-      default:
-        return type;
+  Future<void> _setGiftForScore(int score, String giftId) async {
+    final next = List<String>.of(_scoreGifts);
+    next[score] = giftId;
+    setState(() => _scoreGifts = next);
+    await _db.setScoreGiftMap(next);
+  }
+
+  Future<void> _resetScoreGifts() async {
+    final defaults = List<String>.of(AppConstants.defaultScoreGifts);
+    final missing = defaults.toSet().where((id) => !_inventory.any((i) => i.rewardIdentifier == id)).toList();
+    if (missing.isNotEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Some default gifts are no longer in the inventory '
+            '(${missing.map((id) => AppConstants.defaultGiftNames[id] ?? id).join(', ')}). Choose a gift for each score instead.'),
+      ));
+      return;
     }
+    setState(() => _scoreGifts = defaults);
+    await _db.setScoreGiftMap(defaults);
+  }
+
+  Widget _buildScoreGiftTable() {
+    final ids = _inventory.map((i) => i.rewardIdentifier).toSet();
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+        child: Column(
+          children: [
+            for (var score = 0; score <= AppConstants.maxScore; score++)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 96,
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryViolet.withOpacity(0.08),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Score $score/${AppConstants.maxScore}',
+                        style: const TextStyle(fontWeight: FontWeight.w800, color: AppColors.primaryViolet),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    const Icon(Icons.arrow_forward_rounded, color: AppColors.secondaryText),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        key: ValueKey('score_gift_${score}_${_scoreGifts[score]}_${_inventory.length}'),
+                        value: ids.contains(_scoreGifts[score]) ? _scoreGifts[score] : null,
+                        isExpanded: true,
+                        hint: const Text('Gift missing – choose one', style: TextStyle(color: AppColors.error)),
+                        decoration: const InputDecoration(
+                          isDense: true,
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                        ),
+                        items: [
+                          for (final g in _inventory)
+                            DropdownMenuItem(
+                              value: g.rewardIdentifier,
+                              child: Text(
+                                '${g.displayName}  ·  ${g.availableStock > 0 ? '${g.availableStock} in stock' : 'OUT OF STOCK'}',
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                        ],
+                        onChanged: (v) {
+                          if (v != null) _setGiftForScore(score, v);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildInventoryTab() {
-    final byTier = <String, List<RewardInventory>>{};
-    for (final item in _inventory) {
-      byTier.putIfAbsent(item.rewardType, () => []).add(item);
-    }
-    final tiers = [
-      ..._tierOrder,
-      ...byTier.keys.where((t) => !_tierOrder.contains(t)),
-    ];
     final totalInStock = _inventory.fold<int>(0, (s, i) => s + i.availableStock);
     final totalGiven = _inventory.fold<int>(0, (s, i) => s + i.assignedCount);
 
@@ -793,6 +857,30 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
           children: [
             const Expanded(
               child: Text(
+                'Gift for each score',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: AppColors.deepInkNavy),
+              ),
+            ),
+            TextButton.icon(
+              onPressed: _resetScoreGifts,
+              icon: const Icon(Icons.restart_alt),
+              label: const Text('Reset to default'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 4),
+        const Text(
+          'Choose which gift a visitor wins for each quiz score. Changes apply from the next visitor. '
+          'If a gift runs out, the visitor gets the gift for the nearest lower score that is still in stock.',
+          style: TextStyle(color: AppColors.secondaryText, fontSize: 13),
+        ),
+        const SizedBox(height: 12),
+        _buildScoreGiftTable(),
+        const SizedBox(height: 24),
+        Row(
+          children: [
+            const Expanded(
+              child: Text(
                 'Gifts & stock',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: AppColors.deepInkNavy),
               ),
@@ -807,31 +895,17 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
         ),
         const SizedBox(height: 4),
         const Text(
-          'Stock goes down automatically each time a participant wins a gift. Tap a gift to rename it or change its stock.',
+          'Stock goes down automatically each time a participant wins a gift. Tap a gift to rename it, change its stock or choose its scores.',
           style: TextStyle(color: AppColors.secondaryText, fontSize: 13),
         ),
         const SizedBox(height: 12),
-        for (final tier in tiers) ...[
-          Padding(
-            padding: const EdgeInsets.only(top: 12, bottom: 6),
-            child: Text(
-              tierLabel(tier).toUpperCase(),
-              style: const TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 12,
-                letterSpacing: 0.6,
-                color: AppColors.secondaryText,
-              ),
-            ),
+        if (_inventory.isEmpty)
+          const Padding(
+            padding: EdgeInsets.only(bottom: 8),
+            child: Text('No gifts yet. Add one, then choose it for a score above.',
+                style: TextStyle(color: AppColors.secondaryText, fontSize: 13)),
           ),
-          if ((byTier[tier] ?? const []).isEmpty)
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: Text('No gifts in this tier. Winners get the backup gift.',
-                  style: TextStyle(color: AppColors.secondaryText, fontSize: 13)),
-            ),
-          for (final item in byTier[tier] ?? const <RewardInventory>[]) _giftCard(item),
-        ],
+        for (final item in _inventory) _giftCard(item),
         const SizedBox(height: 24),
         const Text(
           'Recent gifts given',
@@ -881,6 +955,7 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
     final remaining = item.availableStock;
     final low = remaining > 0 && remaining <= 10;
     final color = remaining == 0 ? AppColors.error : (low ? const Color(0xFFB45309) : AppColors.primaryViolet);
+    final mapped = _scoreGifts.contains(item.rewardIdentifier);
     return Card(
       margin: const EdgeInsets.only(bottom: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -899,6 +974,15 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
                   children: [
                     Text(item.displayName,
                         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.deepInkNavy)),
+                    const SizedBox(height: 4),
+                    Text(
+                      _scoresFor(item.rewardIdentifier),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13,
+                        color: mapped ? AppColors.primaryViolet : AppColors.secondaryText,
+                      ),
+                    ),
                     const SizedBox(height: 2),
                     Text(
                       'Given out: ${item.assignedCount} • Collected: ${item.collectedCount}',
@@ -950,7 +1034,7 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
     await _db.updateInventoryItem(
       rewardIdentifier: item.rewardIdentifier,
       displayName: item.displayName,
-      rewardType: item.rewardType,
+      rewardType: AppConstants.rewardGift,
       unitsInStock: item.availableStock + delta,
     );
     await _loadDashboardData(showSpinner: false);
@@ -959,11 +1043,16 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
   Future<void> _showGiftEditor(RewardInventory? existing) async {
     final nameCtrl = TextEditingController(text: existing?.displayName ?? '');
     final stockCtrl = TextEditingController(text: '${existing?.availableStock ?? 0}');
-    String tier = existing?.rewardType ?? AppConstants.rewardSticker;
-    if (tier == AppConstants.rewardScratchCard) tier = AppConstants.rewardSpinWheel;
-    if (!_tierOrder.contains(tier)) tier = AppConstants.rewardSticker;
     final formKey = GlobalKey<FormState>();
-    final tierCount = existing == null ? 0 : _inventory.where((i) => i.rewardType == existing.rewardType).length;
+    // Scores this gift is given for. Selecting a score moves it to this gift.
+    // A score always needs a gift, so a score can only be taken away by choosing
+    // another gift for it (here on that gift, or in the "Gift for each score" table).
+    final originalScores = <int>{
+      if (existing != null)
+        for (var i = 0; i < _scoreGifts.length; i++)
+          if (_scoreGifts[i] == existing.rewardIdentifier) i,
+    };
+    final scores = <int>{...originalScores};
 
     final action = await showDialog<String>(
       context: context,
@@ -987,19 +1076,34 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
                     TextFormField(
                       controller: nameCtrl,
                       autofocus: existing == null,
-                      textCapitalization: TextCapitalization.words,
+                      textCapitalization: TextCapitalization.characters,
                       decoration: const InputDecoration(labelText: 'Gift name', border: OutlineInputBorder()),
                       validator: (v) => (v == null || v.trim().isEmpty) ? 'Enter a name' : null,
                     ),
                     const SizedBox(height: 14),
-                    DropdownButtonFormField<String>(
-                      value: tier,
-                      isExpanded: true,
-                      decoration: const InputDecoration(labelText: 'Given for', border: OutlineInputBorder()),
-                      items: [
-                        for (final t in _tierOrder) DropdownMenuItem(value: t, child: Text(tierLabel(t))),
+                    const Text('Given for score', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.deepInkNavy)),
+                    const SizedBox(height: 6),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 6,
+                      children: [
+                        for (var sc = 0; sc <= AppConstants.maxScore; sc++)
+                          FilterChip(
+                            key: ValueKey('gift_score_chip_$sc'),
+                            label: Text('$sc/${AppConstants.maxScore}'),
+                            selected: scores.contains(sc),
+                            selectedColor: AppColors.primaryViolet.withOpacity(0.18),
+                            checkmarkColor: AppColors.primaryViolet,
+                            onSelected: originalScores.contains(sc)
+                                ? null
+                                : (on) => setLocal(() => on ? scores.add(sc) : scores.remove(sc)),
+                          ),
                       ],
-                      onChanged: (v) => setLocal(() => tier = v!),
+                    ),
+                    const SizedBox(height: 4),
+                    const Text(
+                      'Selecting a score moves it to this gift. To take a score away, choose another gift for it.',
+                      style: TextStyle(color: AppColors.secondaryText, fontSize: 12),
                     ),
                     const SizedBox(height: 14),
                     Row(
@@ -1059,9 +1163,10 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
     if (!mounted || action == null) return;
 
     if (action == 'delete' && existing != null) {
-      if (tierCount <= 1) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Each reward tier needs at least one gift. Set its stock to 0 instead, or add another gift first.'),
+      if (originalScores.isNotEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('"${existing.displayName}" is the gift for ${_scoresFor(existing.rewardIdentifier).toLowerCase()}. '
+              'Choose another gift for those scores first, or set its stock to 0.'),
         ));
         return;
       }
@@ -1087,27 +1192,30 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen>
       return;
     }
 
+    final String giftId;
     if (existing == null) {
-      final id = 'GIFT_${DateTime.now().millisecondsSinceEpoch.toRadixString(36).toUpperCase()}';
+      giftId = 'GIFT_${DateTime.now().millisecondsSinceEpoch.toRadixString(36).toUpperCase()}';
       await _db.insertInventoryItem(RewardInventory(
-        rewardType: tier,
-        rewardIdentifier: id,
+        rewardType: AppConstants.rewardGift,
+        rewardIdentifier: giftId,
         displayName: name,
         configuredStock: stock,
       ));
     } else {
-      if (existing.rewardType != tier && tierCount <= 1 && mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Each reward tier needs at least one gift, so the tier was not changed.'),
-        ));
-        tier = existing.rewardType;
-      }
+      giftId = existing.rewardIdentifier;
       await _db.updateInventoryItem(
-        rewardIdentifier: existing.rewardIdentifier,
+        rewardIdentifier: giftId,
         displayName: name,
-        rewardType: tier,
+        rewardType: AppConstants.rewardGift,
         unitsInStock: stock,
       );
+    }
+    if (scores.difference(originalScores).isNotEmpty) {
+      final next = List<String>.of(_scoreGifts);
+      for (final sc in scores) {
+        next[sc] = giftId;
+      }
+      await _db.setScoreGiftMap(next);
     }
     await _loadDashboardData(showSpinner: false);
   }

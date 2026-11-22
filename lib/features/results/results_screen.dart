@@ -17,17 +17,11 @@ import 'package:unicorn_learning_lab/services/session_service.dart';
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key});
 
-  /// Fallback label for a reward tier, used only when the gift's name is unknown.
-  static String rewardLabel(String? type) {
-    switch (type) {
-      case AppConstants.rewardPremiumGift:
-        return 'Premium Discovery Gift';
-      case AppConstants.rewardScratchCard: // legacy tier, now part of the spin wheel tier
-      case AppConstants.rewardSpinWheel:
-        return 'Spin Wheel Surprise';
-      default:
-        return 'Explorer Sticker Pack';
-    }
+  /// Fallback gift name, used only when the assigned gift's name is unknown
+  /// (e.g. the web preview, which has no database): the default gift for the score.
+  static String rewardLabel(int score) {
+    final id = AppConstants.defaultScoreGifts[score.clamp(0, AppConstants.maxScore)];
+    return AppConstants.defaultGiftNames[id] ?? 'Unicorn Gift';
   }
 
   @override
@@ -146,7 +140,7 @@ class ResultsScreen extends StatelessWidget {
                                   children: [
                                     const Text('YOU UNLOCKED', style: TextStyle(color: Color(0xFFB45309), fontWeight: FontWeight.w800, fontSize: 12, letterSpacing: 1.4)),
                                     Text(
-                                      session.assignedRewardName ?? rewardLabel(session.assignedReward?.rewardType ?? outcome.rewardType),
+                                      session.assignedRewardName ?? rewardLabel(outcome.score),
                                       style: const TextStyle(color: AppColors.deepInkNavy, fontWeight: FontWeight.w800, fontSize: 17),
                                     ),
                                   ],

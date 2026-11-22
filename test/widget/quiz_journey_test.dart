@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:unicorn_learning_lab/app/router.dart';
 import 'package:unicorn_learning_lab/app/theme.dart';
+import 'package:unicorn_learning_lab/core/constants/app_constants.dart';
 import 'package:unicorn_learning_lab/data/database/database_helper.dart';
 import 'package:unicorn_learning_lab/data/models/answer.dart';
 import 'package:unicorn_learning_lab/data/models/attempt.dart';
@@ -51,7 +52,10 @@ class MockDatabaseHelper implements DatabaseHelper {
   Future<RewardInventory?> getInventoryItem(String rewardIdentifier) async => null;
 
   @override
-  Future<List<RewardInventory>> getInventoryForType(String rewardType) async => [];
+  Future<List<RewardInventory>> getAllInventory() async => [];
+
+  @override
+  Future<List<String>> getScoreGiftMap() async => List<String>.of(AppConstants.defaultScoreGifts);
 
   @override
   Future<List<Map<String, Object?>>> getCustomQuestionRows() async => [];
